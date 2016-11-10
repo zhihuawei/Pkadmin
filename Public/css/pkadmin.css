@@ -1,0 +1,67 @@
+/**
+ * ==========================================
+ * Created by Pocket Knife Technology.
+ * Author: ZhiHua_W <zhihua_wei@foxmail.com>
+ * Date: 2016/11/03 0017
+ * Time: 上午 9:23
+ * Project: Pkadmin后台管理系统
+ * Version: 1.0.0
+ * Power: 样式扩展
+ * ==========================================
+ */
+
+.block {
+	display: block !important;
+}
+
+.input-icon {
+	position: relative;
+}
+
+.inline {
+	display: inline-block !important;
+	margin-right: 20px;
+}
+
+.second {
+	color: #fff;
+}
+
+.m-r-15 {
+	margin-right: 15px;
+}
+
+.w-10p {
+	width: 10%;
+}
+
+.w-20p {
+	width: 20%;
+}
+
+.w-30p {
+	width: 30%;
+}
+
+.w-90p {
+	width: 91.66666666666666%;
+}
+
+.bg-white {
+	background-color: white !important;
+}
+
+.color-red {
+	color: red;
+}
+
+.footer-content {
+	position: fixed;
+	width: 100%;
+	bottom: 0;
+	z-index: 50;
+}
+
+.z-index-1 {
+	z-index: -1;
+}
