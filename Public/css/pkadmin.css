@@ -47,6 +47,10 @@
 	width: 91.66666666666666%;
 }
 
+.h-120 {
+	height: 120px !important;
+}
+
 .bg-white {
 	background-color: white !important;
 }
@@ -64,4 +68,8 @@
 
 .z-index-1 {
 	z-index: -1;
+}
+
+.t-left {
+	text-align: left !important;
 }
