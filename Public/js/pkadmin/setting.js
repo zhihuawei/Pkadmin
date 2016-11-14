@@ -23,26 +23,20 @@ var Script = function() {
 	$().ready(function() {
 		$("#settingForm").validate({
 			rules: {
-				mobile: {
+				title: {
 					required: true,
-					isMobile: true
 				},
-				qq: {
+				sitename: {
 					required: true,
-					maxlength: 20
 				},
-				email: {
+				footer: {
 					required: true,
-					email: true
 				},
 			},
 			messages: {
-				mobile: "请输入正确的手机号！",
-				email: "请输入正确的邮箱号！",
-				qq: {
-					required: "请输入qq号码！",
-					maxlength: "您的qq号码不能超过20个字符长！"
-				},
+				title: "请输入网站标题！",
+				sitename: "请输入网站SEO标题！",
+				footer: "请输入版权信息！",
 			}
 		});
 
