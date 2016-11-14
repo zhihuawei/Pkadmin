@@ -23,8 +23,9 @@ class Setting extends Pkadmin_Controller {
 	/**
 	 * 网站设置首页
 	 */
-	public function index() {
-
+	public function setting() {
+		$data = $this->data;
+		$this -> load -> view('setting.html', $data);
 	}
 
 }
