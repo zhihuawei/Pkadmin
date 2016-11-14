@@ -16,4 +16,15 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 
 class Setting extends Pkadmin_Controller {
 	
+//	public function __construct() {
+//		parent::__construct();
+//	}
+
+	/**
+	 * 网站设置首页
+	 */
+	public function index() {
+
+	}
+
 }
