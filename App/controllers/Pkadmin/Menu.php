@@ -25,7 +25,8 @@ class Menu extends Pkadmin_Controller {
 	 * 首页->菜单列表
 	 */
 	public function index() {
-		
+		$data = $this -> data;
+		$this -> load -> view('menu.html', $data);
 	}
 
 	/**
