@@ -173,28 +173,30 @@
 		<!-- END SECTION -->
 		<!-- BEGIN JS -->
 		<?php $this->load->view('Public/footjs.html');?>
+		<script src="<?php echo base_url('Public/js/layer/layer.js');?>"></script>
+		<!-- LATER JS -->
 		<!-- inline scripts related to this page -->
 		<script type="text/javascript">
 			$(function(){
 				$(".del").click(function(){
-				var url = $(this).attr('val');
-				bootbox.confirm({
-					title: "系统提示",
-					message: "确定要删除?", 
-					callback:function(result){
-						if(result){
-							window.location.href = url;
-						}
-					},
-					buttons: {
-						"cancel" : {"label" : "取消"},
-						"confirm" : {
-								"label" : "确定",
-								"className" : "btn-danger"
+					var url = $(this).attr('val');
+					layer.confirm({
+						title: "系统提示",
+						message: "确定要删除?", 
+						callback:function(result){
+							if(result){
+								window.location.href = url;
 							}
-					}
+						},
+						buttons: {
+							"cancel" : {"label" : "取消"},
+							"confirm" : {
+									"label" : "确定",
+									"className" : "btn-danger"
+								}
+						}
+					});
 				});
-			});
 			});
 		</script>
 
