@@ -59,25 +59,102 @@
 											</tr>
 										</thead>
 										<tbody>
-											<!--<?php foreach($admin_log as $item):?>-->
+											<?php foreach($menu_list as $item):?>
 											<tr>
 												<td class="text-center">
-													<!--<?php echo $item['log_id'];?>-->
+													<?php echo $item['id'];?>
+												</td>
+												<td class="text-left">
+													<?php echo $item['title'];?>
 												</td>
 												<td class="text-center">
-													<!--<?php echo $item['username'];?>-->
+													<?php echo $item['name'];?>
 												</td>
 												<td class="text-center">
-													<!--<?php echo date("Y-m-d H:i:s", $item['time']);?>-->
+													<li class="<?php echo $item['icon'];?>"></li>
 												</td>
 												<td class="text-center">
-													<!--<?php echo $item['ip'];?>-->
+													<?php echo $item['sort'];?>
 												</td>
-												<td>
-													<!--<?php echo $item['log'];?>-->
+												<td class="text-center">
+													<?php if($item['islink']) echo "显示"; else echo "隐藏";?>
+												</td>
+												<td class="text-center">
+													<a href="#" class="btn btn-primary btn-xs" title="修改">
+														<li class="fa fa-pencil"></li>
+													</a>
+													<a href="#" class="btn btn-danger btn-xs" title="删除">
+														<li class="fa fa-trash-o"></li>
+													</a>
 												</td>
 											</tr>
-											<!--<?php endforeach;?>-->
+											<?php
+												if(!empty($item['children']))
+													foreach($item['children'] as $itemson):
+											?>
+											<tr>
+												<td class="text-center">
+													<?php echo $itemson['id'];?>
+												</td>
+												<td class="text-left">┗━
+													<?php echo $itemson['title'];?>
+												</td>
+												<td class="text-center">
+													<?php echo $itemson['name'];?>
+												</td>
+												<td class="text-center">
+													<li class="<?php echo $itemson['icon'];?>"></li>
+												</td>
+												<td class="text-center">
+													<?php echo $itemson['sort'];?>
+												</td>
+												<td class="text-center">
+													<?php if($itemson['islink']) echo "显示"; else echo "隐藏";?>
+												</td>
+												<td class="text-center">
+													<a href="#" class="btn btn-primary btn-xs" title="修改">
+														<li class="fa fa-pencil"></li>
+													</a>
+													<a href="#" class="btn btn-danger btn-xs" title="删除">
+														<li class="fa fa-trash-o"></li>
+													</a>
+												</td>
+											</tr>
+											<?php
+												if(!empty($itemson['children']))
+													foreach($itemson['children'] as $itemgson):
+											?>
+											<tr>
+												<td class="text-center">
+													<?php echo $itemgson['id'];?>
+												</td>
+												<td class="text-left">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;┗━
+													<?php echo $itemgson['title'];?>
+												</td>
+												<td class="text-center">
+													<?php echo $itemgson['name'];?>
+												</td>
+												<td class="text-center">
+													<li class="<?php echo $itemson['icon'];?>"></li>
+												</td>
+												<td class="text-center">
+													<?php echo $itemgson['sort'];?>
+												</td>
+												<td class="text-center">
+													<?php if($itemgson['islink']) echo "显示"; else echo "隐藏";?>
+												</td>
+												<td class="text-center">
+													<a href="#" class="btn btn-primary btn-xs" title="修改">
+														<li class="fa fa-pencil"></li>
+													</a>
+													<a href="#" class="btn btn-danger btn-xs" title="删除">
+														<li class="fa fa-trash-o"></li>
+													</a>
+												</td>
+											</tr>
+											<?php endforeach;?>
+											<?php endforeach;?>
+											<?php endforeach;?>
 										</tbody>
 									</table>
 								</div>
