@@ -43,7 +43,7 @@ class Login extends CI_Controller {
 				}
 			}
 		}
-
+		//如果已登录则直接跳转到首页
 		if ($flag) {
 			$success['msg'] = "您已经登录，正在跳转到主页！";
 			$success['url'] = site_url("Pkadmin/Admin/index");
