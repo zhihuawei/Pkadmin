@@ -25,7 +25,11 @@ class Setting extends Pkadmin_Controller {
 	 */
 	public function setting() {
 		$data = $this -> data;
-		$this -> load -> view('setting.html', $data);
+		if ($_POST) {
+			$params['title'] = $this->input->post('title');
+		} else {
+			$this -> load -> view('setting.html', $data);
+		}
 	}
 
 }
