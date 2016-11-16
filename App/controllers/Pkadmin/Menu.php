@@ -34,8 +34,13 @@ class Menu extends Pkadmin_Controller {
 	/**
 	 * 删除菜单
 	 */
-	public function delMenu() {
-
+	public function del($id) {
+		if($id == 1){
+			
+		}
+		//$id = $this->uri->segment(4);
+		var_dump($id);
+		echo 123;
 	}
 
 }
