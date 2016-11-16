@@ -21,7 +21,7 @@ class Logout extends CI_Controller {
 	}
 
 	/**
-	 * 退出操作
+	 * 退出登录操作
 	 */
 	public function index() {
 		$data['setting'] = $this -> pk -> get_setting();
