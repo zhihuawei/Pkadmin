@@ -18,6 +18,7 @@ class Setting extends Pkadmin_Controller {
 
 	public function __construct() {
 		parent::__construct();
+		$this -> load -> model('setting_model', 'setting');
 	}
 
 	/**
@@ -31,6 +32,12 @@ class Setting extends Pkadmin_Controller {
 			$params['keywords'] = $this -> input -> post('keywords');
 			$params['footer'] = $this -> input -> post('footer');
 			$params['description'] = $this -> input -> post('description');
+			$this->setting->update_site_setting($params);
+			$success['msg'] = "网站信息设置成功！";
+			$success['url'] = site_url("Pkadmin/Setting/setting");
+			$success['wait'] = 3;
+			$data['success'] = $success;
+			$this -> load -> view('success.html', $data);
 		} else {
 			$this -> load -> view('setting.html', $data);
 		}

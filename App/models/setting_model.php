@@ -18,5 +18,17 @@ class Setting_model extends CI_Model {
 	const TBL_LOG = 'admin_log';
 	const TBL_ADMIN = 'admin';
 	const TBL_SETTING = 'setting';
-	
+
+	/**
+	 * 函数：更新网站设置信息
+	 * @param array $params 网站信息内容
+	 */
+	public function update_site_setting($params) {
+		foreach ($params as $key => $val) {
+			$condition['key'] = $key;
+			$data['val'] = $val;
+			$this -> db -> where($condition) -> update(self::TBL_SETTING, $data);
+		}
+	}
+
 }
