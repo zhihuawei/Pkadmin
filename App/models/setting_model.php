@@ -18,6 +18,7 @@ class Setting_model extends CI_Model {
 	const TBL_LOG = 'admin_log';
 	const TBL_ADMIN = 'admin';
 	const TBL_SETTING = 'setting';
+	const TBL_AUTHRULE = 'auth_rule';
 
 	/**
 	 * 函数：更新网站设置信息
@@ -30,7 +31,12 @@ class Setting_model extends CI_Model {
 			$this -> db -> where($condition) -> update(self::TBL_SETTING, $data);
 		}
 	}
-	
-	
+
+	/**
+	 * 函数：获取操作菜单信息
+	 */
+	public function get_all_menu() {
+		return $this -> db -> order_by('sort', 'ASC') -> get(self::TBL_AUTHRULE) -> result_array();
+	}
 
 }

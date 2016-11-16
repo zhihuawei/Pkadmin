@@ -26,6 +26,8 @@ class Menu extends Pkadmin_Controller {
 	 */
 	public function index() {
 		$data = $this -> data;
+		$list = $this -> setting -> get_all_menu();
+		$data['menu_list'] = $this -> get_menu_tree($list);
 		$this -> load -> view('menu.html', $data);
 	}
 
