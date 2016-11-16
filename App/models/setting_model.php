@@ -30,5 +30,7 @@ class Setting_model extends CI_Model {
 			$this -> db -> where($condition) -> update(self::TBL_SETTING, $data);
 		}
 	}
+	
+	
 
 }
