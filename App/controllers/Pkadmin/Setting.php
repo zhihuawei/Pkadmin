@@ -33,6 +33,7 @@ class Setting extends Pkadmin_Controller {
 			$params['footer'] = $this -> input -> post('footer');
 			$params['description'] = $this -> input -> post('description');
 			$this->setting->update_site_setting($params);
+			$this -> pk -> add_log('修改网站配置信息！', $this->ADMINISTRSTORS['admin_id'], $this->ADMINISTRSTORS['username']);
 			$success['msg'] = "网站信息设置成功！";
 			$success['url'] = site_url("Pkadmin/Setting/setting");
 			$success['wait'] = 3;
