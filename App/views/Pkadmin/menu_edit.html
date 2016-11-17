@@ -49,17 +49,25 @@
 											<div class="form-group">
 												<label for="title" class="control-label col-lg-2">菜单名称</label>
 												<div class="col-lg-3">
-													<input class="form-control bg-white" id="title" name="title" type="text" value="">
-												</div>											
+													<input class="form-control bg-white" id="title" name="title" type="text" value="<?php echo $editmenu['title'];?>">
+												</div>
 											</div>
 
 											<div class="form-group">
 												<label for="pid" class="control-label col-lg-2">上级菜单</label>
-												<div class="col-lg-2">
+												<div class="col-lg-3">
 													<select class="form-control m-bot15" name="pid">
-														<option value="0">保密</option>
-														<option value="1">男</option>
-														<!--<option value="2" <?php if($admininfo[ 'sex']==2 ) echo 'selected="selected"';?>>女</option>-->
+														<option value="0" <?php if($editmenu[ 'id']==0 ) echo 'selected="selected"';?>>顶级菜单</option>
+														<?php foreach($menulist as $item):?>
+														<option value="<?php echo $item['id'];?>" <?php if($editmenu[ 'id']==$item[ 'id']) echo 'selected="selected"';?>>
+															<?php echo $item['title'];?>
+														</option>
+														<?php foreach($item['children'] as $item):?>
+														<option value="<?php echo $item['id'];?>" <?php if($editmenu[ 'id']==$item[ 'id']) echo 'selected="selected"';?>>&nbsp;&nbsp;&nbsp;┗━
+															<?php echo $item['title'];?>
+														</option>
+														<?php endforeach;?>
+														<?php endforeach;?>
 													</select>
 												</div>
 											</div>
@@ -67,14 +75,14 @@
 											<div class="form-group">
 												<label for="name" class="control-label col-lg-2">Controller/Function</label>
 												<div class="col-lg-3">
-													<input class="form-control" id="name" name="name" type="text" value="">
+													<input class="form-control" id="name" name="name" type="text" value="<?php echo $editmenu['name'];?>">
 												</div>
 											</div>
 
 											<div class="form-group">
 												<label for="icon" class="control-label col-lg-2">菜单icon图标</label>
 												<div class="col-lg-3">
-													<input class="form-control" id="icon" name="icon" type="text" value="">
+													<input class="form-control" id="icon" name="icon" type="text" value="<?php echo $editmenu['icon'];?>">
 												</div>
 											</div>
 
@@ -86,11 +94,11 @@
 													</div>
 												</div>
 											</div>
-											
+
 											<div class="form-group">
 												<label for="sort" class="control-label col-lg-2">排序</label>
 												<div class="col-lg-3">
-													<input class="form-control" id="sort" name="sort" type="number" value="">
+													<input class="form-control" id="sort" name="sort" type="number" value="<?php echo $editmenu['sort'];?>">
 												</div>
 												<label class="control-label col-lg-2 color-red"><i class="fa fa-bolt"></i>&nbsp;从小到大</label>
 											</div>
@@ -98,7 +106,7 @@
 											<div class="form-group">
 												<label for="tips" class="control-label col-lg-2">页面提示</label>
 												<div class="col-lg-6">
-													<textarea class="wysihtml5 form-control" id="tips" name="tips" rows="8"> </textarea>
+													<textarea class="wysihtml5 form-control" id="tips" name="tips" rows="8"> <?php echo $editmenu['tips'];?> </textarea>
 												</div>
 											</div>
 
