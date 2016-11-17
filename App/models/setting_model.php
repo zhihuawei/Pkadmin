@@ -57,10 +57,21 @@ class Setting_model extends CI_Model {
 	/**
 	 * 函数：根据菜单id删除菜单
 	 * @param int $id 菜单id
+	 * @return bool
 	 */
 	public function del_menu($id) {
 		$condition['id'] = $id;
 		return $this -> db -> where($condition) -> delete(self::TBL_AUTHRULE);
+	}
+
+	/**
+	 * 函数：根据id获取菜单信息
+	 * @param int $id 菜单id
+	 * @return array
+	 */
+	public function get_menu_byid($id) {
+		$condition['id'] = $id;
+		return $this -> db -> where($condition) -> get(self::TBL_AUTHRULE) -> row_array();
 	}
 
 }
