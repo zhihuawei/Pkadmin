@@ -74,4 +74,12 @@ class Setting_model extends CI_Model {
 		return $this -> db -> where($condition) -> get(self::TBL_AUTHRULE) -> row_array();
 	}
 
+	/**
+	 * 函数：更新操作菜单信息
+	 */
+	public function updata_menu($id, $params) {
+		$condition['id'] = $id;
+		return $this -> db -> where($condition) -> update(self::TBL_AUTHRULE, $params);
+	}
+
 }

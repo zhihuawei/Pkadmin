@@ -82,4 +82,41 @@ class Menu extends Pkadmin_Controller {
 		$this -> load -> view('menu_edit.html', $data);
 	}
 
+	/**
+	 * 更新或添加菜单信息
+	 */
+	public function update() {
+		$params['title'] = $this -> input -> post('title');
+		$params['pid'] = $this -> input -> post('pid');
+		$params['name'] = $this -> input -> post('name');
+		$params['icon'] = $this -> input -> post('icon');
+		$islink = $this -> input -> post('islink');
+		if (empty($islink)) {
+			$params['islink'] = 0;
+		} else {
+			$params['islink'] = 1;
+		}
+		$sort = $this -> input -> post('sort');
+		if (!empty($sort)) {
+			$params['sort'] = $sort;
+		}
+		$params['tips'] = $this -> input -> post('tips');
+		$id = $this -> input -> post('id');
+		if ($id) {
+			//更新
+			if ($this -> setting -> updata_menu($id, $params)) {
+				$this -> pk -> add_log('编辑更新操作菜单(' . $params['title'] . ')，ID：' . $id, $this -> ADMINISTRSTORS['admin_id'], $this -> ADMINISTRSTORS['username']);
+				$success['msg'] = "菜单编辑更新成功！";
+				$success['url'] = site_url("Pkadmin/Menu/index");
+				$success['wait'] = 3;
+				$data['success'] = $success;
+				$this -> load -> view('success.html', $data);
+			}
+
+		}
+
+		//var_dump($params);
+		//var_dump($id);
+	}
+
 }
