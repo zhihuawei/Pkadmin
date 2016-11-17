@@ -25,7 +25,6 @@ class Logout extends CI_Controller {
 	 */
 	public function index() {
 		$data['setting'] = $this -> pk -> get_setting();
-		$this -> pk -> add_log('退出登录！', $this->ADMINISTRSTORS['admin_id'], $this->ADMINISTRSTORS['username']);
 		delete_cookie('auth');
 		$success['msg'] = "退出成功，跳转到登录页！";
 		$success['url'] = site_url("Pkadmin/Login/index");

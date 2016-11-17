@@ -52,8 +52,6 @@ class Pkadmin_Controller extends CI_Controller {
 				}
 			}
 		}
-		//var_dump($this -> ADMINISTRSTORS);
-		//exit;
 		if (!$flag) {
 			redirect('Pkadmin/Login/index');
 			exit(0);
@@ -91,7 +89,6 @@ class Pkadmin_Controller extends CI_Controller {
 		$this -> data['current'] = $current_rules;
 		$this -> data['menu'] = $menu;
 		$this -> data['admininfo'] = $this -> ADMINISTRSTORS;
-		//$this -> load -> view('error.html', $this -> data);
 	}
 
 	/**

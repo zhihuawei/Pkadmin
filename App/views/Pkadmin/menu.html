@@ -88,10 +88,7 @@
 													</a>
 												</td>
 											</tr>
-											<?php
-												if(!empty($item['children']))
-													foreach($item['children'] as $itemson):
-											?>
+											<?php if(!empty($item['children'])) foreach($item['children'] as $itemson):?>
 											<tr>
 												<td class="text-center">
 													<?php echo $itemson['id'];?>
@@ -120,10 +117,7 @@
 													</a>
 												</td>
 											</tr>
-											<?php
-											if(!empty($itemson['children']))
-												foreach($itemson['children'] as $itemgson):
-											?>
+											<?php if(!empty($itemson['children'])) foreach($itemson['children'] as $itemgson): ?>
 											<tr>
 												<td class="text-center">
 													<?php echo $itemgson['id'];?>
@@ -173,30 +167,47 @@
 		<!-- END SECTION -->
 		<!-- BEGIN JS -->
 		<?php $this->load->view('Public/footjs.html');?>
+		<!--<script src="<?php echo base_url('Public/js/jquery.js');?>"></script>
+		<!-- BASIC JQUERY LIB. JS -->-->
 		<script src="<?php echo base_url('Public/js/layer/layer.js');?>"></script>
 		<!-- LATER JS -->
 		<!-- inline scripts related to this page -->
 		<script type="text/javascript">
-			$(function(){
-				$(".del").click(function(){
-					var url = $(this).attr('val');
-					layer.confirm({
-						title: "系统提示",
-						message: "确定要删除?", 
-						callback:function(result){
-							if(result){
-								window.location.href = url;
-							}
-						},
-						buttons: {
-							"cancel" : {"label" : "取消"},
-							"confirm" : {
-									"label" : "确定",
-									"className" : "btn-danger"
-								}
-						}
-					});
-				});
+			$(function() {
+				alert(123);
+//				$(".del").click(function() {
+//					alert(123);
+//					var url = $(this).attr('val');
+//					//					layer.confirm({
+//					//						title: "系统提示",
+//					//						message: "确定要删除?", 
+//					//						callback:function(result){
+//					//							if(result){
+//					//								window.location.href = url;
+//					//							}
+//					//						},
+//					//						buttons: {
+//					//							"cancel" : {"label" : "取消"},
+//					//							"confirm" : {
+//					//									"label" : "确定",
+//					//									"className" : "btn-danger"
+//					//								}
+//					//						}
+//					//					});
+//					//					layer.confirm('您是如何看待前端开发？', {
+//					//						btn: ['重要', '奇葩'] //按钮
+//					//					}, function() {
+//					//						layer.msg('的确很重要', {
+//					//							icon: 1
+//					//						});
+//					//					}, function() {
+//					//						layer.msg('也可以这样', {
+//					//							time: 20000, //20s后自动关闭
+//					//							btn: ['明白了', '知道了']
+//					//						});
+//					//					});
+////					layer.msg("hakdak");
+//				});
 			});
 		</script>
 
