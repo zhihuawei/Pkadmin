@@ -47,87 +47,63 @@
 									<div class="form">
 										<form class="cmxform form-horizontal tasi-form" id="menuForm" method="post" action="<?php echo site_url('Pkadmin/Menu/update');?>" enctype="multipart/form-data">
 											<div class="form-group">
-												<label for="username" class="control-label col-lg-2">用户名</label>
+												<label for="title" class="control-label col-lg-2">菜单名称</label>
 												<div class="col-lg-3">
-													<input class="form-control bg-white" id="username" name="username" type="text" value="<?php echo $admininfo['username'];?>">
-												</div>
-												<label class="control-label col-lg-2 color-red"><i class="fa fa-bolt"></i>&nbsp;无法修改</label>
+													<input class="form-control bg-white" id="title" name="title" type="text" value="">
+												</div>											
 											</div>
-											
-											<div class="form-group last">
-												<label for="head_pic" class="control-label col-lg-2">头像</label>
-												<div class="col-lg-3">
-													<div class="fileupload fileupload-new" data-provides="fileupload">
-														<div class="fileupload-new thumbnail">
-															<img src="<?php if(!empty($admininfo['head_pic']['head_pic_140_thump'])){echo base_url($admininfo['head_pic']['head_pic_140_thump']);}else{echo base_url('Public/img/no_image.png');}?>">
-														</div>
-														<div class="fileupload-preview fileupload-exists thumbnail">
-														</div>
-														<div>
-															<span class="btn btn-white btn-file">
-																<span class="fileupload-new">
-																	<i class="fa fa-paper-clip"></i> 选择头像
-																</span>
-															<span class="fileupload-exists">
-																<i class="fa fa-undo"></i> 重置
-															</span>
-															<input type="file" class="default" name="head_pic">
-															</span>
-															<a href="#" class="btn btn-danger fileupload-exists" data-dismiss="fileupload">
-																<i class="fa fa-trash"></i> 删除
-															</a>
-														</div>
-													</div>
-												</div>
-											</div>
-											
+
 											<div class="form-group">
-												<label for="sex" class="control-label col-lg-2">性别</label>
+												<label for="pid" class="control-label col-lg-2">上级菜单</label>
 												<div class="col-lg-2">
-													<select class="form-control m-bot15" name="sex">
-														<option value="0" <?php if($admininfo['sex'] == 0) echo 'selected="selected"';?>>保密</option>
-														<option value="1" <?php if($admininfo['sex'] == 1) echo 'selected="selected"';?>>男</option>
-														<option value="2" <?php if($admininfo['sex'] == 2) echo 'selected="selected"';?>>女</option>
+													<select class="form-control m-bot15" name="pid">
+														<option value="0">保密</option>
+														<option value="1">男</option>
+														<!--<option value="2" <?php if($admininfo[ 'sex']==2 ) echo 'selected="selected"';?>>女</option>-->
 													</select>
 												</div>
 											</div>
 
 											<div class="form-group">
-												<label for="birthday" class="control-label col-lg-2">生日</label>
-												<div class="col-lg-2">
-													<div data-date-viewmode="years" data-date-format="yyyy-mm-dd" data-date="2016-01-01" class="input-append date dpYears w-90p">
-														<input name="birthday" type="text" readonly="" value="<?php echo $admininfo['birthday'];?>" size="16" class="form-control">
-														<span class="input-group-btn add-on">
-															<button class="btn btn-info" type="button">
-																<i class="fa fa-calendar"></i>
-															</button>
-														</span>
-													</div>
+												<label for="name" class="control-label col-lg-2">Controller/Function</label>
+												<div class="col-lg-3">
+													<input class="form-control" id="name" name="name" type="text" value="">
 												</div>
 											</div>
 
 											<div class="form-group">
-												<label for="phone" class="control-label col-lg-2">电话</label>
+												<label for="icon" class="control-label col-lg-2">菜单icon图标</label>
 												<div class="col-lg-3">
-													<input class="form-control" id="mobile" name="mobile" type="text" value="<?php echo $admininfo['phone'];?>">
+													<input class="form-control" id="icon" name="icon" type="text" value="">
+												</div>
+											</div>
+
+											<div class="form-group">
+												<label for="islink" class="control-label col-lg-2">显示状态</label>
+												<div class="m-bot15">
+													<div class="col-lg-3">
+														<input class="form-control" id="islink" name="islink" type="checkbox" data-toggle="switch">
+													</div>
 												</div>
 											</div>
 											
 											<div class="form-group">
-												<label for="qq" class="control-label col-lg-2">QQ</label>
+												<label for="sort" class="control-label col-lg-2">排序</label>
 												<div class="col-lg-3">
-													<input class="form-control" id="qq" name="qq" type="text" value="<?php echo $admininfo['qq'];?>">
+													<input class="form-control" id="sort" name="sort" type="number" value="">
+												</div>
+												<label class="control-label col-lg-2 color-red"><i class="fa fa-bolt"></i>&nbsp;从小到大</label>
+											</div>
+
+											<div class="form-group">
+												<label for="tips" class="control-label col-lg-2">页面提示</label>
+												<div class="col-lg-6">
+													<textarea class="wysihtml5 form-control" id="tips" name="tips" rows="8"> </textarea>
 												</div>
 											</div>
 
 											<div class="form-group">
-												<label for="email" class="control-label col-lg-2">E-mail</label>
-												<div class="col-lg-3">
-													<input class="form-control " id="email" name="email" type="email" value="<?php echo $admininfo['email'];?>">
-												</div>
-											</div>
-
-											<div class="form-group">
+												<input type="hidden" name="id" id="id" value="">
 												<div class="col-lg-offset-2 col-lg-10">
 													<button class="btn btn-primary" type="submit">保存</button>
 													<button class="btn btn-default" type="reset">重置</button>
