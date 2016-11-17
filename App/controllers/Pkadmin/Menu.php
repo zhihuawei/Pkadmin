@@ -83,9 +83,20 @@ class Menu extends Pkadmin_Controller {
 	}
 
 	/**
+	 * 新增菜单
+	 */
+	public function add() {
+		$data = $this -> data;
+		$menulist = $this -> setting -> get_all_menu();
+		$data['menulist'] = $this -> get_menu_tree($menulist);
+		$this -> load -> view('menu_add.html', $data);
+	}
+
+	/**
 	 * 更新或添加菜单信息
 	 */
 	public function update() {
+		$data = $this -> data;
 		$params['title'] = $this -> input -> post('title');
 		$params['pid'] = $this -> input -> post('pid');
 		$params['name'] = $this -> input -> post('name');
@@ -103,20 +114,39 @@ class Menu extends Pkadmin_Controller {
 		$params['tips'] = $this -> input -> post('tips');
 		$id = $this -> input -> post('id');
 		if ($id) {
-			//更新
-			if ($this -> setting -> updata_menu($id, $params)) {
+			//编辑更新菜单
+			if ($this -> setting -> update_menu($id, $params)) {
 				$this -> pk -> add_log('编辑更新操作菜单(' . $params['title'] . ')，ID：' . $id, $this -> ADMINISTRSTORS['admin_id'], $this -> ADMINISTRSTORS['username']);
 				$success['msg'] = "菜单编辑更新成功！";
 				$success['url'] = site_url("Pkadmin/Menu/index");
 				$success['wait'] = 3;
 				$data['success'] = $success;
 				$this -> load -> view('success.html', $data);
+			} else {
+				$error['msg'] = "菜单编辑更新失败，请重新修改！";
+				$error['url'] = site_url("Pkadmin/Menu/index");
+				$error['wait'] = 3;
+				$data['error'] = $error;
+				$this -> load -> view('error.html', $data);
 			}
-
+		} else {
+			//插入菜单
+			$menu_id = $this -> setting -> insert_menu($params);
+			if ($menu_id) {
+				$this -> pk -> add_log('新增操作菜单(' . $params['title'] . ')，ID：' . $menu_id, $this -> ADMINISTRSTORS['admin_id'], $this -> ADMINISTRSTORS['username']);
+				$success['msg'] = "菜单新增成功！";
+				$success['url'] = site_url("Pkadmin/Menu/index");
+				$success['wait'] = 3;
+				$data['success'] = $success;
+				$this -> load -> view('success.html', $data);
+			} else {
+				$error['msg'] = "新增操作菜单失败，请重新添加！";
+				$error['url'] = site_url("Pkadmin/Menu/index");
+				$error['wait'] = 3;
+				$data['error'] = $error;
+				$this -> load -> view('error.html', $data);
+			}
 		}
-
-		//var_dump($params);
-		//var_dump($id);
 	}
 
 }

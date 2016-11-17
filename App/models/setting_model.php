@@ -76,10 +76,22 @@ class Setting_model extends CI_Model {
 
 	/**
 	 * 函数：更新操作菜单信息
+	 * @param int $id 菜单id
+	 * @param array $params 菜单信息
+	 * @return bool
 	 */
-	public function updata_menu($id, $params) {
+	public function update_menu($id, $params) {
 		$condition['id'] = $id;
 		return $this -> db -> where($condition) -> update(self::TBL_AUTHRULE, $params);
+	}
+
+	/**
+	 * 函数：插入操作菜单信息
+	 * @param array $params 菜单信息
+	 * @return bool
+	 */
+	public function insert_menu($params) {
+		return $this -> db -> insert(self::TBL_AUTHRULE, $params);
 	}
 
 }
