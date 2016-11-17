@@ -39,6 +39,21 @@ var Script = function() {
 				footer: "请输入版权信息！",
 			}
 		});
+		
+		$("#menuForm").validate({
+			rules: {
+				title: {
+					required: true,
+				},
+				name: {
+					required: true,
+				},
+			},
+			name: {
+				title: "菜单名称不能为空！",
+				sitename: "访问路径不能为空！",
+			}
+		});
 
 	});
 }();

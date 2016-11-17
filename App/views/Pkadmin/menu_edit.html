@@ -45,7 +45,7 @@
 								</header>
 								<div class="panel-body">
 									<div class="form">
-										<form class="cmxform form-horizontal tasi-form" id="menuForm" method="post" action="<?php echo site_url('Pkadmin/Menu/update');?>" enctype="multipart/form-data">
+										<form class="cmxform form-horizontal tasi-form" id="menuForm" method="post" action="<?php echo site_url('Pkadmin/Menu/update');?>">
 											<div class="form-group">
 												<label for="title" class="control-label col-lg-2">菜单名称</label>
 												<div class="col-lg-3">
@@ -59,11 +59,11 @@
 													<select class="form-control m-bot15" name="pid">
 														<option value="0" <?php if($editmenu[ 'id']==0 ) echo 'selected="selected"';?>>顶级菜单</option>
 														<?php foreach($menulist as $item):?>
-														<option value="<?php echo $item['id'];?>" <?php if($editmenu[ 'id']==$item[ 'id']) echo 'selected="selected"';?>>
+														<option value="<?php echo $item['id'];?>" <?php if($editmenu['pid']==$item[ 'id']) echo 'selected="selected"';?>>
 															<?php echo $item['title'];?>
 														</option>
 														<?php foreach($item['children'] as $item):?>
-														<option value="<?php echo $item['id'];?>" <?php if($editmenu[ 'id']==$item[ 'id']) echo 'selected="selected"';?>>&nbsp;&nbsp;&nbsp;┗━
+														<option value="<?php echo $item['id'];?>" <?php if($editmenu['pid']==$item[ 'id']) echo 'selected="selected"';?>>&nbsp;&nbsp;&nbsp;┗━
 															<?php echo $item['title'];?>
 														</option>
 														<?php endforeach;?>
@@ -84,13 +84,14 @@
 												<div class="col-lg-3">
 													<input class="form-control" id="icon" name="icon" type="text" value="<?php echo $editmenu['icon'];?>">
 												</div>
+												<label class="control-label col-lg-2 color-red"><i class="fa fa-bolt"></i>&nbsp;仅对顶级菜单有作用</label>
 											</div>
 
 											<div class="form-group">
 												<label for="islink" class="control-label col-lg-2">显示状态</label>
 												<div class="m-bot15">
 													<div class="col-lg-3">
-														<input class="form-control" id="islink" name="islink" type="checkbox" data-toggle="switch">
+														<input class="form-control" id="islink" name="islink" type="checkbox" data-toggle="switch" <?php if($editmenu['islink']==1) echo 'checked="checked"';?>>
 													</div>
 												</div>
 											</div>
@@ -135,7 +136,7 @@
 		<!-- END SECTION -->
 		<!-- BEGIN JS -->
 		<?php $this->load->view('Public/footjs.html');?>
-		<!--<script src="<?php echo base_url('Public/js/pkadmin/personal.js');?>"></script>-->
+		<script src="<?php echo base_url('Public/js/pkadmin/setting.js');?>"></script>
 		<!-- PKADMIN LOGIN JS -->
 		<!-- END JS -->
 	</body>
