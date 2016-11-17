@@ -35,12 +35,29 @@ class Menu extends Pkadmin_Controller {
 	 * 删除菜单
 	 */
 	public function del($id) {
-		if($id == 1){
-			
+		$data = $this -> data;
+		//控制台菜单不允许删除
+		if ($id == 1) {
+			$error['msg'] = "控制台菜单不允许删除！";
+			$error['url'] = site_url("Pkadmin/Menu/index");
+			$error['wait'] = 3;
+			$data['error'] = $error;
+			$this -> load -> view('error.html', $data);
+			return;
 		}
+		//如果菜单存在下级菜单不允许删除
+		if($this->setting->have_menu_children($id)){
+			$error['msg'] = "此菜单下存在子菜单不允许删除！";
+			$error['url'] = site_url("Pkadmin/Menu/index");
+			$error['wait'] = 3;
+			$data['error'] = $error;
+			$this -> load -> view('error.html', $data);
+			return;
+		}
+		//if()
 		//$id = $this->uri->segment(4);
-		var_dump($id);
-		echo 123;
+		//var_dump($id);
+		//echo 123;
 	}
 
 }

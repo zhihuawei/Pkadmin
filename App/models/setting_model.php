@@ -34,9 +34,24 @@ class Setting_model extends CI_Model {
 
 	/**
 	 * 函数：获取操作菜单信息
+	 * @return array
 	 */
 	public function get_all_menu() {
 		return $this -> db -> order_by('sort', 'ASC') -> get(self::TBL_AUTHRULE) -> result_array();
+	}
+
+	/**
+	 * 函数：获取当前菜单id下是否存在子菜单
+	 * @param int $id 菜单id
+	 * @return bool
+	 */
+	public function have_menu_children($id) {
+		$condition['pid'] = $id;
+		if ($this -> db -> where($condition) -> count_all_results(self::TBL_AUTHRULE)) {
+			return TRUE;
+		} else {
+			return FALSE;
+		}
 	}
 
 }
