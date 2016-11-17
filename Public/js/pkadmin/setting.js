@@ -39,7 +39,10 @@ var Script = function() {
 				footer: "请输入版权信息！",
 			}
 		});
-		
+
+	});
+	
+	$().ready(function() {
 		$("#menuForm").validate({
 			rules: {
 				title: {
@@ -49,11 +52,10 @@ var Script = function() {
 					required: true,
 				},
 			},
-			name: {
+			messages: {
 				title: "菜单名称不能为空！",
-				sitename: "访问路径不能为空！",
+				name: "访问路径不能为空！",
 			}
 		});
-
 	});
 }();
