@@ -46,7 +46,7 @@ class Menu extends Pkadmin_Controller {
 			return;
 		}
 		//如果菜单存在下级菜单不允许删除
-		if($this->setting->have_menu_children($id)){
+		if ($this -> setting -> have_menu_children($id)) {
 			$error['msg'] = "此菜单下存在子菜单不允许删除！";
 			$error['url'] = site_url("Pkadmin/Menu/index");
 			$error['wait'] = 3;
@@ -54,10 +54,21 @@ class Menu extends Pkadmin_Controller {
 			$this -> load -> view('error.html', $data);
 			return;
 		}
-		//if()
-		//$id = $this->uri->segment(4);
-		//var_dump($id);
-		//echo 123;
+		//进行删除操作
+		if ($this -> setting -> del_menu($id)) {
+			$this -> pk -> add_log('删除操作菜单，ID：' . $id, $this -> ADMINISTRSTORS['admin_id'], $this -> ADMINISTRSTORS['username']);
+			$success['msg'] = "菜单删除成功！";
+			$success['url'] = site_url("Pkadmin/Menu/index");
+			$success['wait'] = 3;
+			$data['success'] = $success;
+			$this -> load -> view('success.html', $data);
+		}else{
+			$error['msg'] = "菜单删除失败！";
+			$error['url'] = site_url("Pkadmin/Menu/index");
+			$error['wait'] = 3;
+			$data['error'] = $error;
+			$this -> load -> view('error.html', $data);
+		}
 	}
 
 }

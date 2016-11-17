@@ -54,4 +54,13 @@ class Setting_model extends CI_Model {
 		}
 	}
 
+	/**
+	 * 函数：根据菜单id删除菜单
+	 * @param int $id 菜单id
+	 */
+	public function del_menu($id) {
+		$condition['id'] = $id;
+		return $this -> db -> where($condition) -> delete(self::TBL_AUTHRULE);
+	}
+
 }
