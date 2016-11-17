@@ -62,13 +62,20 @@ class Menu extends Pkadmin_Controller {
 			$success['wait'] = 3;
 			$data['success'] = $success;
 			$this -> load -> view('success.html', $data);
-		}else{
+		} else {
 			$error['msg'] = "菜单删除失败！";
 			$error['url'] = site_url("Pkadmin/Menu/index");
 			$error['wait'] = 3;
 			$data['error'] = $error;
 			$this -> load -> view('error.html', $data);
 		}
+	}
+
+	/**
+	 * 编辑菜单
+	 */
+	public function edit() {
+
 	}
 
 }
