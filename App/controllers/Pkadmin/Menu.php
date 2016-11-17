@@ -78,7 +78,7 @@ class Menu extends Pkadmin_Controller {
 		$data = $this -> data;
 		$data['menulist'] = $this -> setting -> get_all_menu();
 		$data['menu'] = $this -> setting -> get_menu_byid($id);
-		this -> load -> view('menu_edit.html', $data);
+		//this -> load -> view('menu_edit.html', $data);
 	}
 
 }
