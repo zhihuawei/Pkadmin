@@ -49,7 +49,8 @@ class Setting extends Pkadmin_Controller {
 	 */
 	public function devlog() {
 		$data = $this -> data;
-		$devlog = $this -> setting -> get_devlog();
+		$data['devlog'] = $this -> setting -> get_devlog();
+		$this -> load -> view('devlog.html', $data);
 		var_dump($devlog);
 	}
 
