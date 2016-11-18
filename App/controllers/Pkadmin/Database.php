@@ -34,7 +34,7 @@ class Database extends Pkadmin_Controller {
 	}
 
 	/**
-	 * 数据库备份
+	 * 数据库表备份
 	 */
 	public function backup() {
 		$data = $this -> data;
@@ -57,14 +57,25 @@ class Database extends Pkadmin_Controller {
 	}
 
 	/**
-	 * 数据库优化
+	 * 数据库表优化
 	 */
 	public function optimize() {
 		$data = $this -> data;
 		$table = $this -> setting -> get_database_table();
 		//将键名转换为小写
 		$tablelist = array_map('array_change_key_case', $table);
-		var_dump($tablelist);
+		foreach ($tablelist as $key => $val) {
+			$this -> dbutil -> optimize_table($val['name']);
+		}
+		$success['msg'] = "数据库优化成功！";
+		$success['url'] = site_url("Pkadmin/Database/index");
+		$success['wait'] = 3;
+		$data['success'] = $success;
+		$this -> load -> view('success.html', $data);
 	}
+	
+	/**
+	 * 
+	 */
 
 }
