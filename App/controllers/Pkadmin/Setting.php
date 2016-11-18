@@ -44,4 +44,13 @@ class Setting extends Pkadmin_Controller {
 		}
 	}
 
+	/**
+	 * 开发日志功能模块
+	 */
+	public function devlog() {
+		$data = $this -> data;
+		$devlog = $this -> setting -> get_devlog();
+		var_dump($devlog);
+	}
+
 }

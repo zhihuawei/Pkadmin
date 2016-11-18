@@ -36,7 +36,7 @@ class Setting_model extends CI_Model {
 	 * @return array
 	 */
 	public function get_devlog() {
-		return $this -> db -> order_by('id', 'DESC') -> get(self::TBL_DEVLOG) -> return_array();
+		return $this -> db -> order_by('id', 'DESC') -> get(self::TBL_DEVLOG) -> result_array();
 	}
 
 	/**
