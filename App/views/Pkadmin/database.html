@@ -38,14 +38,12 @@
 							<section class="panel">
 								<header class="panel-heading">
 									<span class="label label-primary"><?php echo $current['title'];?></span>
-									<span class="tools pull-right">
-										<!--<a href="<?php echo site_url('Pkadmin/Menu/add');?>" class="fa fa-plus" title="新增菜单"></a>-->
-									</span>
+									<span class="tools pull-right"> </span>
 								</header>
 								<div class="panel-body">
 									<table class="table table-striped table-advance table-hover">
 										<thead>
-											<tr>												
+											<tr>
 												<th class="text-center"><i class="fa fa-pencil-square"></i> 表描述 </th>
 												<th class="text-center"><i class="fa fa-sitemap"></i> 表名 </th>
 												<th class="text-center"><i class="fa fa-adjust"></i> 数据量 </th>
@@ -56,7 +54,7 @@
 										</thead>
 										<tbody>
 											<?php foreach($tablelist as $item):?>
-											<tr>												
+											<tr>
 												<td class="text-center">
 													<?php echo $item['comment'];?>
 												</td>
@@ -80,11 +78,9 @@
 										</tbody>
 									</table>
 									<div class="form-group">
-										<div class="col-lg-offset-2 col-lg-10">
-											<a class="btn btn-primary" href="<?php echo site_url('Pkadmin/Database/optimize');?>">优化表</a>
-											<a class="btn btn-info" href="<?php echo site_url('Pkadmin/Database/repair');?>">修复表</a>
-											<a class="btn btn-success" href="<?php echo site_url('Pkadmin/Database/backup');?>">立即备份</a>
-										</div>
+										<a class="btn btn-primary" href="<?php echo site_url('Pkadmin/Database/optimize');?>">优化表</a>
+										<a class="btn btn-info" href="<?php echo site_url('Pkadmin/Database/repair');?>">修复表</a>
+										<a class="btn btn-success" href="<?php echo site_url('Pkadmin/Database/backup');?>">立即备份</a>
 									</div>
 								</div>
 							</section>
@@ -102,12 +98,6 @@
 		<!-- END SECTION -->
 		<!-- BEGIN JS -->
 		<?php $this->load->view('Public/footjs.html');?>
-		<!-- INLINE JS RELATED TO THIS PAGE -->
-		<script type="text/javascript">
-			$(function() {
-				
-			});
-		</script>
 		<!-- END JS -->
 	</body>
 
