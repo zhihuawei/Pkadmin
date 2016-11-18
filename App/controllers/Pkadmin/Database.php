@@ -36,21 +36,28 @@ class Database extends Pkadmin_Controller {
 	 * 数据库备份
 	 */
 	public function backup() {
-		$prefs = array(
-			'tables' => array(), 
-			'ignore' => array(), 
-			'format' => 'txt', 
-			'filename' => date("YmdHis").'mybackup.sql',
-			'newline' => "\n"
-		);
-		$this->load->dbutil();
-		$backup = $this->dbutil->backup($prefs);
-		
-		var_dump($backup);
-
-		
-
-
+		$data = $this -> data;
+		$prefs = array('tables' => array(), 'ignore' => array(), 'format' => 'zip', 'filename' => date("YmdHis") . '_Pk_admin_backup.sql', 'newline' => "\n");
+		$this -> load -> dbutil();
+		$backup = $this -> dbutil -> backup($prefs);
+		$this -> load -> helper('file');
+		//备份文件路径
+		$backup_path = "./Data/backup/";
+		if (!file_exists($backup_path)) {
+			mkdir($backup_path, 0777, true);
+		}
+		$path = $backup_path . date("YmdHis") . '_Pk_admin_backup.zip';
+		write_file($path, $backup);
+		$success['msg'] = "数据库备份成功，备份文件路径：" . $path;
+		$success['url'] = site_url("Pkadmin/Database/index");
+		$success['wait'] = 3;
+		$data['success'] = $success;
+		$this -> load -> view('success.html', $data);
 	}
+	
+	/**
+	 * 数据库优化
+	 */
+	 
 
 }
