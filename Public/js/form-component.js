@@ -7,7 +7,7 @@ var Script = function () {
     var gebtn = function (parEl, child) {
         return parEl.getElementsByTagName(child);
     };
-    onload = function () {
+    var onload = function () {
         var body = gebtn(d, 'body')[0];
         body.className = body.className && body.className != '' ? body.className + ' has-js' : 'has-js';
         if (!d.getElementById || !d.createTextNode) return;

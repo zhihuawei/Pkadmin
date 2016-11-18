@@ -51,7 +51,7 @@
 												</th>
 												<th class="text-center"><i class="fa fa-sitemap"></i> 表名 </th>
 												<th class="text-center"><i class="fa fa-pencil-square"></i> 表描述 </th>
-												<th class="text-center"><i class="fa fa-adjust"></i> 数据量  </th>
+												<th class="text-center"><i class="fa fa-adjust"></i> 数据量 </th>
 												<th class="text-center"><i class="fa fa-star-half-o"></i> 数据大小 </th>
 												<th class="text-center"><i class="fa fa-clock-o"></i> 创建时间 </th>
 												<th class="text-center"><i class="fa fa-clock-o"></i> 更新时间 </th>
@@ -113,13 +113,20 @@
 		<!-- INLINE JS RELATED TO THIS PAGE -->
 		<script type="text/javascript">
 			$(function() {
-				$(".del").click(function() {
-					var url = $(this).attr('val');
-					layer.confirm('确定要删除此菜单吗？', {
-						btn: ['确定', '取消'] //按钮
-					}, function() {
-						window.location.href = url;
-					}, function() {});
+				//全选的实现
+				$(".check-all").click(function() {
+					$(".ids").prop("checked", this.checked);
+				});
+				$(".ids").click(function() {
+					var option = $(".ids");
+					option.each(function(i) {
+						if(!this.checked) {
+							$(".check-all").prop("checked", false);
+							return false;
+						} else {
+							$(".check-all").prop("checked", true);
+						}
+					});
 				});
 			});
 		</script>
