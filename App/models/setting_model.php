@@ -15,8 +15,7 @@
 defined('BASEPATH') OR exit('No direct script access allowed');
 
 class Setting_model extends CI_Model {
-	const TBL_LOG = 'admin_log';
-	const TBL_ADMIN = 'admin';
+	const TBL_DEVLOG = 'devlog';
 	const TBL_SETTING = 'setting';
 	const TBL_AUTHRULE = 'auth_rule';
 
@@ -30,6 +29,14 @@ class Setting_model extends CI_Model {
 			$data['val'] = $val;
 			$this -> db -> where($condition) -> update(self::TBL_SETTING, $data);
 		}
+	}
+
+	/**
+	 * 函数：获取开发日志信息
+	 * @return array
+	 */
+	public function get_devlog() {
+		return $this -> db -> order_by('id', 'DESC') -> get(self::TBL_DEVLOG) -> return_array();
 	}
 
 	/**
@@ -96,11 +103,12 @@ class Setting_model extends CI_Model {
 
 	/**
 	 * 函数：获取数据库中所有表
+	 * @return array
 	 */
 	public function get_database_table() {
 		$sql = "SHOW TABLE STATUS";
 		$return = $this -> db -> query($sql);
-		return $return->result_array();
+		return $return -> result_array();
 	}
 
 }
