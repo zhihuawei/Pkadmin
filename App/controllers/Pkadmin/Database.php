@@ -18,6 +18,7 @@ class Database extends Pkadmin_Controller {
 
 	public function __construct() {
 		parent::__construct();
+		$this -> load -> dbutil();
 		$this -> load -> model('setting_model', 'setting');
 	}
 
@@ -38,7 +39,7 @@ class Database extends Pkadmin_Controller {
 	public function backup() {
 		$data = $this -> data;
 		$prefs = array('tables' => array(), 'ignore' => array(), 'format' => 'zip', 'filename' => date("YmdHis") . '_Pk_admin_backup.sql', 'newline' => "\n");
-		$this -> load -> dbutil();
+
 		$backup = $this -> dbutil -> backup($prefs);
 		$this -> load -> helper('file');
 		//备份文件路径
@@ -54,10 +55,16 @@ class Database extends Pkadmin_Controller {
 		$data['success'] = $success;
 		$this -> load -> view('success.html', $data);
 	}
-	
+
 	/**
 	 * 数据库优化
 	 */
-	 
+	public function optimize() {
+		$data = $this -> data;
+		$table = $this -> setting -> get_database_table();
+		//将键名转换为小写
+		$tablelist = array_map('array_change_key_case', $table);
+		var_dump($tablelist);
+	}
 
 }
