@@ -61,21 +61,38 @@ class Database extends Pkadmin_Controller {
 	 */
 	public function optimize() {
 		$data = $this -> data;
+		$result = $this -> dbutil -> optimize_database();
+		if ($result !== FALSE) {
+			$success['msg'] = "数据库优化成功！";
+			$success['url'] = site_url("Pkadmin/Database/index");
+			$success['wait'] = 3;
+			$data['success'] = $success;
+			$this -> load -> view('success.html', $data);
+		}else{
+			$error['msg'] = "数据库优化失败！";
+			$error['url'] = site_url("Pkadmin/Database/index");
+			$error['wait'] = 3;
+			$data['error'] = $error;
+			$this -> load -> view('error.html', $data);
+		}
+	}
+
+	/**
+	 * 数据库表修复
+	 */
+	public function repair() {
+		$data = $this -> data;
 		$table = $this -> setting -> get_database_table();
 		//将键名转换为小写
 		$tablelist = array_map('array_change_key_case', $table);
 		foreach ($tablelist as $key => $val) {
-			$this -> dbutil -> optimize_table($val['name']);
+			$this -> dbutil -> repair_table($val['name']);
 		}
-		$success['msg'] = "数据库优化成功！";
+		$success['msg'] = "数据库修复成功！";
 		$success['url'] = site_url("Pkadmin/Database/index");
 		$success['wait'] = 3;
 		$data['success'] = $success;
 		$this -> load -> view('success.html', $data);
 	}
-	
-	/**
-	 * 
-	 */
 
 }
