@@ -22,15 +22,35 @@ class Database extends Pkadmin_Controller {
 	}
 
 	/**
-	 * 数据库备份首页
+	 * 数据库表首页
 	 */
 	public function index() {
 		$data = $this -> data;
 		$table = $this -> setting -> get_database_table();
 		//将键名转换为小写
 		$data['tablelist'] = array_map('array_change_key_case', $table);
-
 		$this -> load -> view('database.html', $data);
+	}
+
+	/**
+	 * 数据库备份
+	 */
+	public function backup() {
+		$prefs = array(
+			'tables' => array(), 
+			'ignore' => array(), 
+			'format' => 'txt', 
+			'filename' => date("YmdHis").'mybackup.sql',
+			'newline' => "\n"
+		);
+		$this->load->dbutil();
+		$backup = $this->dbutil->backup($prefs);
+		
+		var_dump($backup);
+
+		
+
+
 	}
 
 }
