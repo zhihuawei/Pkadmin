@@ -94,4 +94,12 @@ class Setting_model extends CI_Model {
 		return $this -> db -> insert(self::TBL_AUTHRULE, $params);
 	}
 
+	/**
+	 * 函数：获取数据库中所有表
+	 */
+	public function get_database_table() {
+		$sql = "SHOW TABLE STATUS";
+		return $this -> db -> query($sql);
+	}
+
 }
