@@ -25,10 +25,12 @@ class Database extends Pkadmin_Controller {
 	 * 数据库备份首页
 	 */
 	public function index() {
-		$table = $this->setting->get_database_table();
+		$data = $this -> data;
+		$table = $this -> setting -> get_database_table();
 		//将键名转换为小写
-		$tablelist = array_map('array_change_key_case', $table);
-		var_dump($tablelist);
+		$data['tablelist'] = array_map('array_change_key_case', $table);
+
+		$this -> load -> view('database.html', $data);
 	}
 
 }
