@@ -99,7 +99,8 @@ class Setting_model extends CI_Model {
 	 */
 	public function get_database_table() {
 		$sql = "SHOW TABLE STATUS";
-		return $this -> db -> query($sql);
+		$return = $this -> db -> query($sql);
+		return $return->result_array();
 	}
 
 }

@@ -21,4 +21,14 @@ class Database extends Pkadmin_Controller {
 		$this -> load -> model('setting_model', 'setting');
 	}
 
+	/**
+	 * 数据库备份首页
+	 */
+	public function index() {
+		$table = $this->setting->get_database_table();
+		//将键名转换为小写
+		$tablelist = array_map('array_change_key_case', $table);
+		var_dump($tablelist);
+	}
+
 }
