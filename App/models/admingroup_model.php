@@ -18,6 +18,7 @@ class Admingroup_model extends CI_Model {
 	const TBL_ADMIN = 'admin';
 	const TBL_AUTHRULE = 'auth_rule';
 	const TBL_AUTHGROUP = 'auth_group';
+	const TBL_AUTHGROUPACCESS = 'auth_group_access';
 
 	/**
 	 * 函数：获取管理员用户数量
@@ -54,10 +55,24 @@ class Admingroup_model extends CI_Model {
 
 	/**
 	 * 函数：根据id获取管理员信息
+	 * @param int $admin_id 管理员id
+	 * @return array $admininfo
 	 */
 	public function get_administrator_info($admin_id) {
 		$condition['admin_id'] = $admin_id;
-		return $this -> db -> where($condition) -> get(self::TBL_ADMIN) -> row_array();
+		$admininfo = $this -> db -> where($condition) -> get(self::TBL_ADMIN) -> row_array();
+		$admininfo['head_pic'] = unserialize($admininfo['head_pic']);
+		return $admininfo;
+	}
+
+	/**
+	 * 函数：根据管理员id获取管理员权限组信息
+	 * @param int $admin_id 管理员id
+	 * @return array 管理员权限组信息
+	 */
+	public function get_administrator_authgroup($admin_id) {
+		$condition['admin_id'] = $admin_id;
+		return $this -> db -> where($condition) -> get(self::TBL_AUTHGROUPACCESS) -> row_array();
 	}
 
 	/**

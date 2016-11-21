@@ -78,7 +78,8 @@ class Administrator extends Pkadmin_Controller {
 	public function edit($id) {
 		$data = $this -> data;
 		$data['auth_group'] = $this -> ag -> get_auth_group_list($id);
-		$data['admin_info'] = $this -> ag -> get_administrator_info($id);
+		$data['access'] = $this -> ag -> get_administrator_authgroup($id);
+		$data['admininfo'] = $this -> ag -> get_administrator_info($id);
 		$this -> load -> view('admin_edit.html', $data);
 	}
 
