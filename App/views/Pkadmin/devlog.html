@@ -41,44 +41,16 @@
 									<span class="tools pull-right"> </span>
 								</header>
 								<div class="panel-body">
-									<ul class="timeline">
-										<li class="centering-line"></li>
-										<!-- BEGIN TIME CAT-->
-										<li class="center-timeline-cat">
-											<div class="inner">
-												March 2014
-											</div>
-											<!-- /.inner -->
-										</li>
-										<!-- END TIME CAT-->
-									</ul>
+									<?php foreach($devlog as $item):?>
 									<ul class="timeline">
 										<!-- BEGIN CENTERING LINE -->
 										<li class="centering-line"></li>
 										<!-- END CENTERING LINE -->
-
 										<!-- BEGIN TIME CAT-->
 										<li class="center-timeline-cat">
 											<div class="inner">
 												January 2014
 											</div>
-											<!-- /.inner -->
-										</li>
-										<!-- BEGIN END CAT-->
-										<!-- BEGIN TIME CAT-->
-										<li class="center-timeline-cat">
-											<div class="inner">
-												December 2013
-											</div>
-											<!-- /.inner -->
-										</li>
-										<!-- BEGIN END CAT-->
-										<!-- BEGIN TIME CAT-->
-										<li class="center-timeline-cat">
-											<div class="inner">
-												November 2013
-											</div>
-											<!-- /.inner -->
 										</li>
 										<!-- BEGIN END CAT-->
 										<!-- BEGIN HIGHLIGHT TIMELINE MOMENT -->
@@ -89,21 +61,21 @@
 												<h4>Joined Cleret Gombel</h4>
 												<p class="text-muted">November 28, 2013</p>
 											</div>
-											<!-- /.inner-content -->
 										</li>
 										<!-- END HIGHLIGHT TIMELINE MOMENT -->
 										<!-- BEGIN HIGHLIGHT TIMELINE MOMENT -->
 										<li class="item-timeline highlight text-center">
 											<div class="buletan"></div>
-											<div class="inner-content">
-												<h2 class="text-info"><i class="fa fa-male"></i></h2>
-												<h4>Born</h4>
-												<p class="text-muted">January 01, 1990</p>
+											<div class="inner-content item-timeline-bg ">
+												<h2 class="text-info"><i class="fa fa-book"></i></h2>
+												<h4>PKADMIN后台管理系统</h4>
+												<p class="text-muted">V<?php echo $item['version'];?></p>
 											</div>
 											<!-- /.inner-content -->
 										</li>
 										<!-- END HIGHLIGHT TIMELINE MOMENT -->
 									</ul>
+									<?php endforeach;?>
 								</div>
 							</section>
 						</div>

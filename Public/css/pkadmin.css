@@ -73,3 +73,7 @@
 .t-left {
 	text-align: left !important;
 }
+
+.item-timeline-bg {
+	background: none repeat scroll 0% 0% #FFFFFF !important;
+}
