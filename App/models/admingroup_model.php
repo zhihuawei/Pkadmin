@@ -83,4 +83,25 @@ class Admingroup_model extends CI_Model {
 		return $this -> db -> get(self::TBL_AUTHGROUP) -> result_array();
 	}
 
+	/**
+	 * 函数：修改管理员信息
+	 * @param int $admin_id 管理员id
+	 * @param array $params 管理员信息
+	 * @return bool
+	 */
+	public function update_administrator($admin_id, $auth_group, $params) {
+		$condition['admin_id'] = $admin_id;
+		$this -> db -> where($condition) -> update(self::TBL_AUTHGROUPACCESS, $auth_group);
+		return $this -> db -> where($condition) -> update(self::TBL_ADMIN, $params);
+	}
+
+	/**
+	 * 函数：插入管理员信息
+	 * @param array $params 管理员信息
+	 * @param int $group_id 管理员权限组id
+	 */
+	public function insert_administrator($params, $group_id) {
+
+	}
+
 }

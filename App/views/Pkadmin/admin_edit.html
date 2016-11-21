@@ -42,7 +42,7 @@
 								</header>
 								<div class="panel-body">
 									<div class="form">
-										<form class="cmxform form-horizontal tasi-form" id="personalForm" method="post" action="<?php echo site_url('Pkadmin/Administrator/addeditadmininfo');?>" enctype="multipart/form-data">
+										<form class="cmxform form-horizontal tasi-form" id="adminForm" method="post" action="<?php echo site_url('Pkadmin/Administrator/addeditadmininfo');?>" enctype="multipart/form-data">
 											<div class="form-group">
 												<label for="username" class="control-label col-lg-2">用户名</label>
 												<div class="col-lg-3">
@@ -59,6 +59,14 @@
 														<?php endforeach;?>												
 													</select>
 												</div>
+											</div>
+											
+											<div class="form-group">
+												<label for="password" class="control-label col-lg-2">登录密码</label>
+												<div class="col-lg-3">
+													<input class="form-control bg-white" id="password" name="password" type="password" value="">
+												</div>	
+												<label class="control-label col-lg-2 color-red"><i class="fa fa-bolt"></i>&nbsp;为空表示不做修改</label>
 											</div>
 											
 											<div class="form-group last">
@@ -159,7 +167,7 @@
 		<!-- END SECTION -->
 		<!-- BEGIN JS -->
 		<?php $this->load->view('Public/footjs.html');?>
-		<!--<script src="<?php echo base_url('Public/js/pkadmin/personal.js');?>"></script>-->
+		<script src="<?php echo base_url('Public/js/pkadmin/personal.js');?>"></script>
 		<!-- PKADMIN LOGIN JS -->
 		<!-- END JS -->
 	</body>
