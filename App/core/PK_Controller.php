@@ -72,7 +72,7 @@ class Pkadmin_Controller extends CI_Controller {
 			exit(0);
 		}
 		//当前方法名称
-		$current_action_name = $action == 'edit' ? "index" : $action;
+		$current_action_name = $action = 'edit' ? "index" : $action;
 		$current_rules = $this -> pk -> get_current_rules($controller, $action);
 
 		$menu_access_id = $admin_auth_group['rules'];

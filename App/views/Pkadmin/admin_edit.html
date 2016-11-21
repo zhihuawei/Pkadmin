@@ -51,14 +51,12 @@
 											</div>
 											
 											<div class="form-group">
-												<label for="auth_group" class="control-label col-lg-2">所属用户组</label>
+												<label for="group_id" class="control-label col-lg-2">所属用户组</label>
 												<div class="col-lg-3">
-													<select class="form-control m-bot15" name="auth_group">
+													<select class="form-control m-bot15" name="group_id">
 														<?php foreach($auth_group as $item):?>
-														<option value="<?php echo $item['id'];?>" <?php if($admininfo['sex'] == 0) echo 'selected="selected"';?>><?php echo $item['title'];?></option>
-														<?php endforeach;?>
-														<option value="1" <?php if($admininfo['sex'] == 1) echo 'selected="selected"';?>>男</option>
-														<option value="2" <?php if($admininfo['sex'] == 2) echo 'selected="selected"';?>>女</option>
+														<option value="<?php echo $item['id'];?>" <?php if($access['group_id'] == $item['id']) echo 'selected="selected"';?>><?php echo $item['title'];?></option>
+														<?php endforeach;?>												
 													</select>
 												</div>
 											</div>
@@ -138,6 +136,7 @@
 
 											<div class="form-group">
 												<div class="col-lg-offset-2 col-lg-10">
+													<input type="hidden" name="id" id="id" value="<?php echo $admininfo['admin_id'];?>">
 													<button class="btn btn-primary" type="submit">保存</button>
 													<button class="btn btn-default" type="reset">重置</button>
 												</div>
