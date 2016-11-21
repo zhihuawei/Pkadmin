@@ -59,7 +59,7 @@ class Pkadmin_Controller extends CI_Controller {
 		$admin_id = $this -> ADMINISTRSTORS['admin_id'];
 		$admin_auth_group = $this -> pk -> get_admin_auth_group($admin_id);
 		//不需要权限验证的控制器名称
-		$allow_controller_name = array('Upload');
+		$allow_controller_name = array('Login');
 		//不需要权限验证的函数名称
 		$allow_action_name = array();
 		//获取当前访问的控制器名称
