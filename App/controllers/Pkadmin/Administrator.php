@@ -42,4 +42,21 @@ class Administrator extends Pkadmin_Controller {
 		$this -> load -> view('administrator.html', $data);
 	}
 
+	/**
+	 * 删除管理员
+	 */
+	public function del($id) {
+		$data = $this -> data;
+		//超级管理员不允许删除
+		if ($id == 1) {
+			$error['msg'] = "超级管理员不允许删除！";
+			$error['url'] = site_url("Pkadmin/Administrator/index");
+			$error['wait'] = 3;
+			$data['error'] = $error;
+			$this -> load -> view('error.html', $data);
+			return;
+		}
+
+	}
+
 }

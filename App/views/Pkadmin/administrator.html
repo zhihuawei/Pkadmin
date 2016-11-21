@@ -32,7 +32,7 @@
 					<?php $this->load->view('Public/topmenu.html');?>
 					<!-- TOPMENU ROW -->
 
-					<!-- LOG ROW  -->
+					<!-- ADMINIDTRAROR ROW  -->
 					<div class="row">
 						<div class="col-lg-12">
 							<section class="panel">
@@ -97,9 +97,11 @@
 													<a href="<?php echo site_url('Pkadmin/Administrator/edit').'/'.$item['admin_id'];?>" class="btn btn-primary btn-xs" title="修改">
 														<li class="fa fa-pencil"></li>
 													</a>
-													<a val="<?php echo site_url('Pkadmin/Administrator/del').'/'.$item['admin_id'];?>" class="btn btn-danger btn-xs del" title="删除">
+													<?php if($item['admin_id'] != 1) echo '<a val='.site_url('Pkadmin/Administrator/del').'/'.$item['admin_id'].' class="btn btn-danger btn-xs del" title="删除"><li class="fa fa-trash-o"></li></a>';?>
+
+													<!--<a val="<?php echo site_url('Pkadmin/Administrator/del').'/'.$item['admin_id'];?>" class="btn btn-danger btn-xs del" title="删除">
 														<li class="fa fa-trash-o"></li>
-													</a>
+													</a>-->
 												</td>
 											</tr>
 											<?php endforeach;?>
@@ -111,11 +113,10 @@
 									</div>
 									<!-- END PAGEINFO -->
 								</div>
-
 							</section>
 						</div>
 					</div>
-					<!-- END LOG ROW  -->
+					<!-- END ADMINIDTRAROR ROW  -->
 				</section>
 				<!-- END WRAPPER -->
 			</section>
