@@ -83,4 +83,16 @@ class Administrator extends Pkadmin_Controller {
 		$this -> load -> view('admin_edit.html', $data);
 	}
 
+	/**
+	 * 添加编辑更新管理员信息
+	 */
+	public function addeditadmininfo() {
+		$params['username'] = $this -> input -> post('username');
+		$params['sex'] = $this -> input -> post('sex');
+		$params['birthday'] = $this -> input -> post('birthday');
+		$params['phone'] = $this -> input -> post('mobile');
+		$params['qq'] = $this -> input -> post('qq');
+		$params['email'] = $this -> input -> post('email');
+	}
+
 }

@@ -38,7 +38,6 @@ class Personal extends Pkadmin_Controller {
 		$params['phone'] = $this -> input -> post('mobile');
 		$params['qq'] = $this -> input -> post('qq');
 		$params['email'] = $this -> input -> post('email');
-		$params['sex'] = $this -> input -> post('sex');
 		//头像上传
 		if ($_FILES['head_pic']) {
 			//配置上传参数
