@@ -26,4 +26,18 @@ class Admingroup_model extends CI_Model {
 		return $this -> db -> count_all(self::TBL_ADMIN);
 	}
 
+	/**
+	 * 函数：获取管理员用户列表
+	 * @param array $map 模糊查询
+	 * @param int $limit 每页显示数
+	 * @param int $offset 偏移量
+	 */
+	public function get_administrator_list($keyword = '', $limit, $offset) {
+		if (empty($keyword)) {
+			return $this -> db -> limit($limit, $offset) -> get(self::TBL_ADMIN) -> result_array();
+		} else {
+			return $this -> db -> like('username', $keyword) -> or_like('email', $keyword) -> limit($limit, $offset) -> get(self::TBL_ADMIN) -> result_array();
+		}
+	}
+
 }
