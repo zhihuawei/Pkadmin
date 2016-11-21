@@ -128,6 +128,19 @@
 		<!-- END SECTION -->
 		<!-- BEGIN JS -->
 		<?php $this->load->view('Public/footjs.html');?>
+		<!-- INLINE JS RELATED TO THIS PAGE -->
+		<script type="text/javascript">
+			$(function() {
+				$(".del").click(function() {
+					var url = $(this).attr('val');
+					layer.confirm('确定要删除此管理员用户吗？', {
+						btn: ['确定', '取消'] //按钮
+					}, function() {
+						window.location.href = url;
+					}, function() {});
+				});
+			});
+		</script>
 		<!-- END JS -->
 	</body>
 

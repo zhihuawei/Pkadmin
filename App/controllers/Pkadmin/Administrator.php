@@ -56,7 +56,30 @@ class Administrator extends Pkadmin_Controller {
 			$this -> load -> view('error.html', $data);
 			return;
 		}
+		if ($this -> ag -> del_administrator($id)) {
+			$this -> pk -> add_log('删除管理员用户，ID：' . $id, $this -> ADMINISTRSTORS['admin_id'], $this -> ADMINISTRSTORS['username']);
+			$success['msg'] = "管理员用户删除成功！";
+			$success['url'] = site_url("Pkadmin/Administrator/index");
+			$success['wait'] = 3;
+			$data['success'] = $success;
+			$this -> load -> view('success.html', $data);
+		} else {
+			$error['msg'] = "管理员用户删除失败！";
+			$error['url'] = site_url("Pkadmin/Administrator/index");
+			$error['wait'] = 3;
+			$data['error'] = $error;
+			$this -> load -> view('error.html', $data);
+		}
+	}
 
+	/**
+	 * 编辑管理员
+	 */
+	public function edit($id) {
+		$data = $this -> data;
+		$data['auth_group'] = $this -> ag -> get_auth_group_list($id);
+		$data['admin_info'] = $this -> ag -> get_administrator_info($id);
+		$this -> load -> view('admin_edit.html', $data);
 	}
 
 }

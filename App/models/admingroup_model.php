@@ -17,6 +17,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 class Admingroup_model extends CI_Model {
 	const TBL_ADMIN = 'admin';
 	const TBL_AUTHRULE = 'auth_rule';
+	const TBL_AUTHGROUP = 'auth_group';
 
 	/**
 	 * 函数：获取管理员用户数量
@@ -31,6 +32,7 @@ class Admingroup_model extends CI_Model {
 	 * @param array $map 模糊查询
 	 * @param int $limit 每页显示数
 	 * @param int $offset 偏移量
+	 * @param array 管理员用户列表
 	 */
 	public function get_administrator_list($keyword = '', $limit, $offset) {
 		if (empty($keyword)) {
@@ -38,6 +40,32 @@ class Admingroup_model extends CI_Model {
 		} else {
 			return $this -> db -> like('username', $keyword) -> or_like('email', $keyword) -> limit($limit, $offset) -> get(self::TBL_ADMIN) -> result_array();
 		}
+	}
+
+	/**
+	 * 函数：删除管理员用户
+	 * @param int $admin_id 管理员id
+	 * @return bool
+	 */
+	public function del_administrator($admin_id) {
+		$condition['admin_id'] = $admin_id;
+		return $this -> db -> where($condition) -> delete(self::TBL_ADMIN);
+	}
+
+	/**
+	 * 函数：根据id获取管理员信息
+	 */
+	public function get_administrator_info($admin_id) {
+		$condition['admin_id'] = $admin_id;
+		return $this -> db -> where($condition) -> get(self::TBL_ADMIN) -> row_array();
+	}
+
+	/**
+	 * 函数：获取权限组列表
+	 * @return array
+	 */
+	public function get_auth_group_list() {
+		return $this -> db -> get(self::TBL_AUTHGROUP) -> result_array();
 	}
 
 }
