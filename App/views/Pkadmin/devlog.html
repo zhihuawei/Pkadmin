@@ -49,7 +49,7 @@
 										<!-- BEGIN TIME CAT-->
 										<li class="center-timeline-cat">
 											<div class="inner">
-												January 2014
+												<?php echo $item['year'];?>
 											</div>
 										</li>
 										<!-- BEGIN END CAT-->
@@ -57,9 +57,11 @@
 										<li class="item-timeline highlight text-center">
 											<div class="buletan"></div>
 											<div class="inner-content">
-												<h2 class="text-info"><i class="fa fa-flag-checkered"></i></h2>
-												<h4>Joined Cleret Gombel</h4>
-												<p class="text-muted">November 28, 2013</p>
+												<h2 class="text-info"><i class="fa fa-book"></i></h2>
+												<h4><?php echo $item['log'];?></h4>
+												<p class="text-muted">
+													<?php echo date("Y-m-d H:i:s",$item['time']);?>
+												</p>
 											</div>
 										</li>
 										<!-- END HIGHLIGHT TIMELINE MOMENT -->
@@ -67,11 +69,12 @@
 										<li class="item-timeline highlight text-center">
 											<div class="buletan"></div>
 											<div class="inner-content item-timeline-bg ">
-												<h2 class="text-info"><i class="fa fa-book"></i></h2>
+												<h2 class="text-info"><img class="w-10p h-10p" src="<?php echo base_url('Public/img/pkadmin_logo.png');?>"></h2>
 												<h4>PKADMIN后台管理系统</h4>
-												<p class="text-muted">V<?php echo $item['version'];?></p>
+												<p class="text-muted">V
+													<?php echo $item['version'];?>
+												</p>
 											</div>
-											<!-- /.inner-content -->
 										</li>
 										<!-- END HIGHLIGHT TIMELINE MOMENT -->
 									</ul>
