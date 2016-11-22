@@ -38,8 +38,9 @@ class Personal extends Pkadmin_Controller {
 		$params['phone'] = $this -> input -> post('mobile');
 		$params['qq'] = $this -> input -> post('qq');
 		$params['email'] = $this -> input -> post('email');
+
 		//头像上传
-		if ($_FILES['head_pic']) {
+		if (!empty($_FILES['head_pic']['tmp_name'])) {
 			//配置上传参数
 			$config['upload_path'] = './Data/upload/head_pic/' . date("Ym");
 			//原图路径
@@ -110,6 +111,7 @@ class Personal extends Pkadmin_Controller {
 				return;
 			}
 		}
+
 		if ($this -> pk -> set_admin_profile($this -> ADMINISTRSTORS['admin_id'], $params)) {
 			$success['msg'] = "个人资料修改成功！";
 			$success['url'] = site_url("Pkadmin/Personal/index");

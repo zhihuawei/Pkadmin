@@ -114,7 +114,7 @@ class Administrator extends Pkadmin_Controller {
 		$params['email'] = $this -> input -> post('email');
 
 		//头像上传
-		if ($_FILES['head_pic']) {
+		if (!empty($_FILES['head_pic']['tmp_name'])) {
 			//配置上传参数
 			$config['upload_path'] = './Data/upload/head_pic/' . date("Ym");
 			//原图路径
@@ -178,7 +178,7 @@ class Administrator extends Pkadmin_Controller {
 				$params['head_pic'] = serialize($head_pic_path);
 			} else {
 				$error['msg'] = $this -> upload -> display_errors();
-				$error['url'] = site_url("Pkadmin/Personal/index");
+				$error['url'] = site_url("Pkadmin/Administrator/add");
 				$error['wait'] = 3;
 				$data['error'] = $error;
 				$this -> load -> view('error.html', $data);
@@ -204,6 +204,8 @@ class Administrator extends Pkadmin_Controller {
 			}
 		} else {
 			//添加
+			var_dump($params);
+			var_dump($auth_group);
 
 		}
 	}
