@@ -77,10 +77,19 @@ class Administrator extends Pkadmin_Controller {
 	 */
 	public function edit($id) {
 		$data = $this -> data;
-		$data['auth_group'] = $this -> ag -> get_auth_group_list($id);
+		$data['auth_group'] = $this -> ag -> get_auth_group_list();
 		$data['access'] = $this -> ag -> get_administrator_authgroup($id);
 		$data['admininfo'] = $this -> ag -> get_administrator_info($id);
 		$this -> load -> view('admin_edit.html', $data);
+	}
+
+	/**
+	 * 新增管理员
+	 */
+	public function add() {
+		$data = $this -> data;
+		$data['auth_group'] = $this -> ag -> get_auth_group_list();
+		$this -> load -> view('admin_add.html', $data);
 	}
 
 	/**
@@ -195,6 +204,7 @@ class Administrator extends Pkadmin_Controller {
 			}
 		} else {
 			//添加
+
 		}
 	}
 
