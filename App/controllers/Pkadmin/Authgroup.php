@@ -28,7 +28,8 @@ class Authgroup extends Pkadmin_Controller {
 	public function index() {
 		$data = $this -> data;
 		$data['auth_group'] = $this -> ag -> get_auth_group_list();
-		var_dump($data['auth_group']);
+		//var_dump($data['auth_group']);
+		$this -> load -> view('authgroup.html', $data);
 	}
 
 }

@@ -38,11 +38,19 @@
 							<section class="panel">
 								<header class="panel-heading">
 									<span class="label label-primary"><?php echo $current['title'];?></span>
-									<span class="tools pull-right">
-										<a href="<?php echo site_url('Pkadmin/Menu/add');?>" class="fa fa-plus" title="新增菜单"></a>
+									<span class="tools pull-right">									
 									</span>
 								</header>
 								<div class="panel-body">
+									<!-- BEGIN NAV -->
+									<nav class="navbar navbar-default">
+										<form class="navbar-form form-inline" role="search">
+											<div class="form-group pull-right">
+												<a href="<?php echo site_url('Pkadmin/Menu/add');?>" class="btn btn-primary pull-right"><i class="fa fa-plus"></i>新增菜单</a>
+											</div>
+										</form>
+									</nav>
+									<!-- END NAV -->
 									<table class="table table-striped table-advance table-hover">
 										<thead>
 											<tr>
