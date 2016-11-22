@@ -203,16 +203,21 @@ class Administrator extends Pkadmin_Controller {
 				$this -> load -> view('error.html', $data);
 			}
 		} else {
-			//添加
-			$id = $this -> ag -> insert_administrator($params, $auth_group);
-			var_dump($id);
-
-			//			if ($this -> ag -> insert_administrator($params, $auth_group)){
-			//
-			//			}
-			var_dump($params);
-			var_dump($auth_group);
-
+			//添加管理员信息
+			if ($this -> ag -> insert_administrator($params, $auth_group)) {
+				$this -> pk -> add_log('添加管理员信息，管理员用户名：' . $params['username'], $this -> ADMINISTRSTORS['admin_id'], $this -> ADMINISTRSTORS['username']);
+				$success['msg'] = "管理员信息添加成功！";
+				$success['url'] = site_url("Pkadmin/Administrator/index");
+				$success['wait'] = 3;
+				$data['success'] = $success;
+				$this -> load -> view('success.html', $data);
+			} else {
+				$error['msg'] = "管理员信息添加失败！";
+				$error['url'] = site_url("Pkadmin/Administrator/index");
+				$error['wait'] = 3;
+				$data['error'] = $error;
+				$this -> load -> view('error.html', $data);
+			}
 		}
 	}
 

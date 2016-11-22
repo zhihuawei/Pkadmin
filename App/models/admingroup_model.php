@@ -50,6 +50,7 @@ class Admingroup_model extends CI_Model {
 	 */
 	public function del_administrator($admin_id) {
 		$condition['admin_id'] = $admin_id;
+		$this -> db -> where($condition) -> delete(self::TBL_AUTHGROUPACCESS);
 		return $this -> db -> where($condition) -> delete(self::TBL_ADMIN);
 	}
 
@@ -103,8 +104,8 @@ class Admingroup_model extends CI_Model {
 	 */
 	public function insert_administrator($params, $auth_group) {
 		$result = $this -> db -> insert(self::TBL_ADMIN, $params);
-		//$auth_group['admin_id'] = $this -> db -> insert(self::TBL_ADMIN, $params);
-		return $result;
+		$auth_group['admin_id'] = $this -> db -> insert_id();
+		return $this -> db -> insert(self::TBL_AUTHGROUPACCESS, $auth_group);
 	}
 
 }
