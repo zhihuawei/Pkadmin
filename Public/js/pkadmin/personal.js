@@ -88,7 +88,7 @@ var Script = function() {
 	});
 
 	$().ready(function() {
-		$("#adminForm").validate({
+		$("#admineditForm").validate({
 			rules: {
 				username: {
 					required: true,
