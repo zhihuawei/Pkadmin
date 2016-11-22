@@ -79,7 +79,7 @@ class Administrator extends Pkadmin_Controller {
 		$data = $this -> data;
 		$data['auth_group'] = $this -> ag -> get_auth_group_list();
 		$data['access'] = $this -> ag -> get_administrator_authgroup($id);
-		$data['admininfo'] = $this -> ag -> get_administrator_info($id);
+		$data['admin_info'] = $this -> ag -> get_administrator_info($id);
 		$this -> load -> view('admin_edit.html', $data);
 	}
 
@@ -204,6 +204,12 @@ class Administrator extends Pkadmin_Controller {
 			}
 		} else {
 			//添加
+			$id = $this -> ag -> insert_administrator($params, $auth_group);
+			var_dump($id);
+
+			//			if ($this -> ag -> insert_administrator($params, $auth_group)){
+			//
+			//			}
 			var_dump($params);
 			var_dump($auth_group);
 

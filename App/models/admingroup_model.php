@@ -86,6 +86,7 @@ class Admingroup_model extends CI_Model {
 	/**
 	 * 函数：修改管理员信息
 	 * @param int $admin_id 管理员id
+	 * @param array $auth_group 管理员权限组id
 	 * @param array $params 管理员信息
 	 * @return bool
 	 */
@@ -98,10 +99,12 @@ class Admingroup_model extends CI_Model {
 	/**
 	 * 函数：插入管理员信息
 	 * @param array $params 管理员信息
-	 * @param int $group_id 管理员权限组id
+	 * @param array $auth_group 管理员权限组id
 	 */
-	public function insert_administrator($params, $group_id) {
-
+	public function insert_administrator($params, $auth_group) {
+		$result = $this -> db -> insert(self::TBL_ADMIN, $params);
+		//$auth_group['admin_id'] = $this -> db -> insert(self::TBL_ADMIN, $params);
+		return $result;
 	}
 
 }
