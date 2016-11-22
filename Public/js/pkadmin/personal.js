@@ -123,4 +123,43 @@ var Script = function() {
 			}
 		});
 	});
+	
+	$().ready(function() {
+		$("#adminaddForm").validate({
+			rules: {
+				username: {
+					required: true,
+				},
+				password: {
+					required: true,
+					minlength: 5,
+				},
+				mobile: {
+					required: true,
+					isMobile: true
+				},
+				qq: {
+					required: true,
+					maxlength: 20
+				},
+				email: {
+					required: true,
+					email: true
+				},
+			},
+			messages: {
+				username: "用户名不能为空！",
+				password: {
+					required: "请输入登录密码！",
+					minlength: "您的密码必须至少有5个字符长"
+				},
+				mobile: "请输入正确的手机号！",
+				email: "请输入正确的邮箱号！",
+				qq: {
+					required: "请输入qq号码！",
+					maxlength: "您的qq号码不能超过20个字符长！"
+				},
+			}
+		});
+	});
 }();
