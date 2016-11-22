@@ -26,7 +26,9 @@ class Authgroup extends Pkadmin_Controller {
 	 * 用户组管理首页
 	 */
 	public function index() {
-		
+		$data = $this -> data;
+		$data['auth_group'] = $this -> ag -> get_auth_group_list();
+		var_dump($data['auth_group']);
 	}
 
 }
