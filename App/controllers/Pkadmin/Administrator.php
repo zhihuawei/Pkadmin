@@ -196,7 +196,6 @@ class Administrator extends Pkadmin_Controller {
 		} else {
 			//添加
 		}
-		var_dump($params);
 	}
 
 }
