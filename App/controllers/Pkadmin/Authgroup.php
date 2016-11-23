@@ -32,6 +32,8 @@ class Authgroup extends Pkadmin_Controller {
 		$this -> load -> view('authgroup.html', $data);
 	}
 	
-	public
+	public function edit(){}
+	
+	public function add(){}
 
 }
