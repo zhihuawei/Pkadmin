@@ -8,7 +8,7 @@
  * Time: 下午 3:36
  * Project: Pkadmin后台管理系统
  * Version: 1.0.0
- * Power: 后台权限组管理控制器
+ * Power: 后台角色权限组管理控制器
  * ==========================================
  */
 
@@ -23,7 +23,7 @@ class Authgroup extends Pkadmin_Controller {
 	}
 
 	/**
-	 * 用户组管理首页
+	 * 角色权限用户组管理首页
 	 */
 	public function index() {
 		$data = $this -> data;
@@ -31,5 +31,7 @@ class Authgroup extends Pkadmin_Controller {
 		//var_dump($data['auth_group']);
 		$this -> load -> view('authgroup.html', $data);
 	}
+	
+	public
 
 }
