@@ -101,11 +101,21 @@ class Admingroup_model extends CI_Model {
 	 * 函数：插入管理员信息
 	 * @param array $params 管理员信息
 	 * @param array $auth_group 管理员权限组id
+	 * @return bool
 	 */
 	public function insert_administrator($params, $auth_group) {
 		$result = $this -> db -> insert(self::TBL_ADMIN, $params);
 		$auth_group['admin_id'] = $this -> db -> insert_id();
 		return $this -> db -> insert(self::TBL_AUTHGROUPACCESS, $auth_group);
+	}
+
+	/**
+	 * 函数：根据角色id查找是否存在拥有此角色的用户
+	 * @param int $group_id 角色权限组id
+	 */
+	public function get_admincount_of_authgroup($group_id) {
+		$condition['group_id'] = $group_id;
+		return $this -> db -> where($condition) -> count_all_results(self::TBL_AUTHGROUPACCESS);
 	}
 
 }

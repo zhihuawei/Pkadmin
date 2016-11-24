@@ -28,7 +28,6 @@ class Authgroup extends Pkadmin_Controller {
 	public function index() {
 		$data = $this -> data;
 		$data['auth_group'] = $this -> ag -> get_auth_group_list();
-		//var_dump($data['auth_group']);
 		$this -> load -> view('authgroup.html', $data);
 	}
 
@@ -36,7 +35,16 @@ class Authgroup extends Pkadmin_Controller {
 	 * 删除角色权限
 	 */
 	public function del($id) {
-
+		$data = $this -> data;
+		//角色下存在用户，不允许删除
+		if($this -> ag -> get_admincount_of_authgroup($id)){
+			$error['msg'] = "此角色权限下存在管理员用户，不允许删除！";
+			$error['url'] = site_url("Pkadmin/Authgroup/index");
+			$error['wait'] = 3;
+			$data['error'] = $error;
+			$this -> load -> view('error.html', $data);
+			return;
+		}
 	}
 
 	public function edit() {
