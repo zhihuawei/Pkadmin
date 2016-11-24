@@ -112,10 +112,21 @@ class Admingroup_model extends CI_Model {
 	/**
 	 * 函数：根据角色id查找是否存在拥有此角色的用户
 	 * @param int $group_id 角色权限组id
+	 * @return int
 	 */
 	public function get_admincount_of_authgroup($group_id) {
 		$condition['group_id'] = $group_id;
 		return $this -> db -> where($condition) -> count_all_results(self::TBL_AUTHGROUPACCESS);
+	}
+
+	/**
+	 * 函数：删除角色权限组
+	 * @param int $id 角色权限组id
+	 * @return bool
+	 */
+	public function del_auth_group($id) {
+		$condition['id'] = $id;
+		return $this -> db -> where($condition) -> delete(self::TBL_AUTHGROUP);
 	}
 
 }
