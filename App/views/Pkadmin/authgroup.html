@@ -75,9 +75,8 @@
 												<td class="text-center ">
 													<?php echo $item['note'];?>
 												</td>
-
-												<td class="text-center ">
-													<?php if($item['id'] != 1) echo '<a val='.site_url('Pkadmin/Authgroup/edit').'/'.$item['id'].' class="btn btn-primary btn-xs del" title="删除"><li class="fa fa-pencil"></li></a>';?>
+												<td class="text-center ">													
+													<?php if($item['id'] != 1) echo '<a val='.site_url('Pkadmin/Authgroup/edit').'/'.$item['id'].' class="btn btn-primary btn-xs del" title="删除"><li class="fa fa-pencil"></li></a>'; else echo '<button class="btn btn-default btn-xs" title="禁止操作"><li class="fa fa-ban"></li></button>'?>
 													<?php if($item['id'] != 1) echo '<a val='.site_url('Pkadmin/Authgroup/del').'/'.$item['id'].' class="btn btn-danger btn-xs del" title="删除"><li class="fa fa-trash-o"></li></a>';?>
 												</td>
 											</tr>
