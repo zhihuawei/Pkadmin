@@ -31,9 +31,15 @@ class Authgroup extends Pkadmin_Controller {
 		//var_dump($data['auth_group']);
 		$this -> load -> view('authgroup.html', $data);
 	}
-	
-	public function edit(){}
-	
-	public function add(){}
+
+	/**
+	 * 删除角色权限
+	 */
+	public function del($id) {
+
+	}
+
+	public function edit() {
+	}
 
 }

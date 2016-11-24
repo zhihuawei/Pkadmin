@@ -44,7 +44,7 @@ class Admingroup_model extends CI_Model {
 	}
 
 	/**
-	 * 函数：删除管理员用户
+	 * 函数：删除管理员用户(以及角色信息)
 	 * @param int $admin_id 管理员id
 	 * @return bool
 	 */
