@@ -15,7 +15,7 @@
 
 	</head>
 
-	<body>
+	<body class="has-js">
 		<!-- BEGIN SECTION -->
 		<section id="container">
 			<!-- BEGIN HEADER -->
@@ -31,6 +31,53 @@
 					<!-- TOPMENU ROW  -->
 					<?php $this->load->view('Public/topmenu.html');?>
 					<!-- TOPMENU ROW  -->
+
+			   <!-- BEGIN ROW  -->
+               <!--<div class="row">
+                  <div class="col-lg-6">
+                     <section class="panel">
+                        <header class="panel-heading">
+                           <span class="label label-primary">Custom Checkbox</span>
+                           <span class="tools pull-right">
+                           <a href="javascript:;" class="fa fa-chevron-down"></a>
+                           <a href="javascript:;" class="fa fa-times"></a>
+                           </span>
+                        </header>
+                        <div class="panel-body">
+                           <div class="panel-body">
+                              <form action="#" method="get" accept-charset="utf-8">
+                                 <div class="checkboxes">
+                                    <label class="label_check c_on" for="checkbox-01">
+                                    <input name="sample-checkbox-01" id="checkbox-01" value="1" type="checkbox" checked /> I agree to the terms &#38; conditions.
+                                    </label>
+                                    <label class="label_check" for="checkbox-02">
+                                    <input name="sample-checkbox-02" id="checkbox-02" value="1" type="checkbox"> Please send me regular updates. </label>
+                                    <label class="label_check" for="checkbox-03">
+                                    <input name="sample-checkbox-02" id="checkbox-03" value="1" type="checkbox"> This is nice checkbox.</label>
+                                 </div>
+                                 <div class="radios">
+                                    <label class="label_radio" for="radio-01">
+                                    <input name="sample-radio" id="radio-01" value="1" type="radio" checked /> This is option A...
+                                    </label>
+                                    <label class="label_radio" for="radio-02">
+                                    <input name="sample-radio" id="radio-02" value="1" type="radio"> and this is option B...
+                                    </label>
+                                    <label class="label_radio" for="radio-03">
+                                    <input name="sample-radio" id="radio-03" value="1" type="radio"> or simply choose option C
+                                    </label>
+                                 </div>
+                              </form>
+                           </div>
+                        </div>
+                     </section>
+                  </div>
+               </div>-->
+			   <!-- END ROW  -->
+
+
+
+
+
 
 					<!-- BEGIN ROW  -->
 					<div class="row">
@@ -71,15 +118,28 @@
 													<div class="col-lg-10">
 														<div class="panel panel-danger">
 															<!--<?php if(in_array($v['id'],$group['rules'])){echo 'checked="checked"';};?>  value="{$v['id']}"-->
-															
+
 															<div class="panel-heading">
-																<input name="rules[]" class="father" type="checkbox"/>
-																系统介绍
+																<div class="checkboxes">
+																	<label class="label_check" for="checkbox-01">
+																		<input name="sample-checkbox-01" id="checkbox-01" value="1" type="checkbox" checked />系统介绍
+																	</label>
+																</div>
+
+																<!--<input name="rules[]" class="father" type="checkbox" />-->
+																 
 																<span class="tools pull-right">
 																<a href="javascript:;" class="fa fa-chevron-down"></a>
 															</span>
 															</div>
 															<div class="panel-body">
+								
+																
+																
+																
+																
+																
+																
 																<h4>PKADMIN</h4>
 																<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;pkadmin后台管理系统是基于Codeigniter框架和Olive Admin后台模版进行开发的。</p>
 																<p>PHP版本：
@@ -100,14 +160,20 @@
 																</p>
 															</div>
 														</div>
+														
+													</div>
+													<div class="col-lg-10">
 														<div class="panel panel-danger">
+
 															<div class="panel-heading">
-																系统介绍
+
+																<!--<input name="rules[]" class="father" type="checkbox" />-->
+																 系统介绍
 																<span class="tools pull-right">
 																<a href="javascript:;" class="fa fa-chevron-down"></a>
 															</span>
 															</div>
-															<div class="panel-body">
+															<div class="panel-body">			
 																<h4>PKADMIN</h4>
 																<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;pkadmin后台管理系统是基于Codeigniter框架和Olive Admin后台模版进行开发的。</p>
 																<p>PHP版本：
@@ -128,6 +194,7 @@
 																</p>
 															</div>
 														</div>
+														
 													</div>
 												</div>
 											</div>
