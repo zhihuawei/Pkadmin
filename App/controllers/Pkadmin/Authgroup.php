@@ -61,16 +61,27 @@ class Authgroup extends Pkadmin_Controller {
 		}
 	}
 
+	/**
+	 * 修改角色
+	 */
 	public function edit($id) {
 		$data = $this -> data;
 		$this -> load -> view('authgroup_edit.html', $data);
 	}
 
+	/**
+	 * 添加角色
+	 */
 	public function add() {
 		$data = $this -> data;
 		$auth_rule = $this -> ag -> get_all_auth_rule();
 		$data['auth_rule_tree'] = $this -> get_menu_tree($auth_rule);
 		$this -> load -> view('authgroup_add.html', $data);
 	}
+	
+	/**
+	 * 保存角色
+	 */
+	public function addedit
 
 }
