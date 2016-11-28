@@ -92,7 +92,7 @@ class Authgroup extends Pkadmin_Controller {
 		} else {
 			$params['status'] = 0;
 		}
-		$params['note'] = $this -> input -> post('note');		
+		$params['note'] = $this -> input -> post('note');
 		$rules = $this -> input -> post('rules');
 		if (is_array($rules)) {
 			foreach ($rules as $k => $v) {
@@ -101,12 +101,39 @@ class Authgroup extends Pkadmin_Controller {
 			$rules = implode(',', $rules);
 		}
 		$params['rules'] = $rules;
-		if($id){
+		if ($id) {
 			//修改角色信息
-		}else{
-			//插入角色信息			
+			if ($this -> ag -> update_auth_group($id, $params)) {
+				$this -> pk -> add_log('修改角色权限组：' . $params['title'], $this -> ADMINISTRSTORS['admin_id'], $this -> ADMINISTRSTORS['username']);
+				$success['msg'] = "修改角色权限组成功！";
+				$success['url'] = site_url("Pkadmin/Authgroup/index");
+				$success['wait'] = 3;
+				$data['success'] = $success;
+				$this -> load -> view('success.html', $data);
+			} else {
+				$error['msg'] = "修改角色权限组失败！";
+				$error['url'] = site_url("Pkadmin/Authgroup/index");
+				$error['wait'] = 3;
+				$data['error'] = $error;
+				$this -> load -> view('error.html', $data);
+			}
+		} else {
+			//插入角色信息
+			if ($this -> ag -> insert_auth_group($params)) {
+				$this -> pk -> add_log('新增角色权限组：' . $params['title'], $this -> ADMINISTRSTORS['admin_id'], $this -> ADMINISTRSTORS['username']);
+				$success['msg'] = "新增角色权限组成功！";
+				$success['url'] = site_url("Pkadmin/Authgroup/index");
+				$success['wait'] = 3;
+				$data['success'] = $success;
+				$this -> load -> view('success.html', $data);
+			} else {
+				$error['msg'] = "新增角色权限组失败！";
+				$error['url'] = site_url("Pkadmin/Authgroup/index");
+				$error['wait'] = 3;
+				$data['error'] = $error;
+				$this -> load -> view('error.html', $data);
+			}
 		}
-		var_dump($params);
 	}
 
 }
