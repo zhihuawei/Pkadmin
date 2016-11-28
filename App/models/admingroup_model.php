@@ -139,7 +139,7 @@ class Admingroup_model extends CI_Model {
 
 	/**
 	 * 函数：插入新增角色信息
-	 * @param array $params
+	 * @param array $params 参数信息
 	 * @return bool
 	 */
 	public function insert_auth_group($params) {
@@ -148,10 +148,23 @@ class Admingroup_model extends CI_Model {
 
 	/**
 	 * 函数：更新编辑角色信息
+	 * @param int $id 角色权限组id
+	 * @param array $params 参数信息
+	 * @return bool
 	 */
 	public function update_auth_group($id, $params) {
 		$condition['id'] = $id;
 		return $this -> db -> where($condition) -> update(self::TBL_AUTHGROUP, $params);
+	}
+
+	/**
+	 * 函数：根据id获得角色权限组信息
+	 * @param int $id 角色权限组id
+	 * @return array 角色权限组信息
+	 */
+	public function get_auth_group_info($id) {
+		$condition['id'] = $id;
+		return $this -> db -> where($condition) -> get(self::TBL_AUTHGROUP) -> row_array();
 	}
 
 }

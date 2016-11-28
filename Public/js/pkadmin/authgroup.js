@@ -36,7 +36,6 @@ var Script = function() {
 		}
 	});
 
-
 	$().ready(function() {
 		$("#authgroupaddForm").validate({
 			rules: {
@@ -49,5 +48,18 @@ var Script = function() {
 			}
 		});
 	});
-	
+
+	$().ready(function() {
+		$("#authgroupeditForm").validate({
+			rules: {
+				title: {
+					required: true,
+				},
+			},
+			messages: {
+				title: "角色名不能为空！",
+			}
+		});
+	});
+
 }();

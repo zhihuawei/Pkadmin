@@ -41,11 +41,11 @@
 								</header>
 								<div class="panel-body">
 									<div class="form">
-										<form class="cmxform form-horizontal tasi-form" id="authgroupeditForm" method="post" action="<?php echo site_url('Pkadmin/Authgroup/addedit');?>">
+										<form class="cmxform form-horizontal tasi-form" id="authgroupeditForm" method="post" action="<?php echo site_url('Pkadmin/Authgroup/update');?>">
 											<div class="form-group">
 												<label for="title" class="control-label col-sm-2">角色名称</label>
 												<div class="col-sm-3">
-													<input class="form-control bg-white" id="title" name="title" type="text" value="">
+													<input class="form-control bg-white" id="title" name="title" type="text" value="<?php echo $auth_group['title'];?>">
 												</div>
 											</div>
 
@@ -53,7 +53,7 @@
 												<label for="status" class="control-label col-sm-2">角色状态</label>
 												<div class="m-bot15">
 													<div class="col-sm-3">
-														<input class="form-control" id="status" name="status" type="checkbox" data-toggle="switch">
+														<input class="form-control" id="status" <?php if($auth_group['status'] == 1){echo 'checked="checked"';};?> name="status" type="checkbox" data-toggle="switch">
 													</div>
 												</div>
 											</div>
@@ -61,7 +61,7 @@
 											<div class="form-group">
 												<label for="note" class="control-label col-sm-2">角色描述</label>
 												<div class="col-sm-3">
-													<textarea class="form-control" id="note" name="note" rows="3"></textarea>
+													<textarea class="form-control" id="note" name="note" rows="3"><?php echo $auth_group['note'];?></textarea>
 												</div>
 											</div>
 
@@ -70,50 +70,35 @@
 												<div class="col-sm-9">
 													<div class="col-sm-10">
 														<div class="row">
+															<?php foreach($auth_rule_tree as $itemfather):?>
 															<div class="panel panel-success">
 																<div class="panel-heading form-inline">
 																	<label>
-																		<input name="rules[]" class="ace ace-checkbox-2 father" type="checkbox" value="{$v['id']}"/>
-																		<span class="lbl"> 系统介绍 </span>
+																		<input name="rules[]" class="ace ace-checkbox-2 father" <?php if(in_array($itemfather['id'],$auth_group['rules'])){echo 'checked="checked"';};?> type="checkbox" value="<?php echo $itemfather['id'];?>"/>
+																		<span class="lbl"> <?php echo $itemfather['title'];?> </span>
 																	</label>
 																	<span class="tools pull-right">
 																		<a href="javascript:;" class="fa fa-chevron-down"></a>
 																	</span>
 																</div>
+																<?php if(!empty($itemfather['children'])):?>
 																<div class="panel-body panel-border">
-
+																	<?php foreach($itemfather['children'] as $itemson):?>
 																	<label class="col-xs-2 w-160">
-																		<input name="rules[]" class="ace ace-checkbox-2 children" type="checkbox" value="{$vv['id']}"/>
-																		<span class="lbl"> 系统介绍</span>
+																		<input name="rules[]" class="ace ace-checkbox-2 children" <?php if(in_array($itemson['id'],$auth_group['rules'])){echo 'checked="checked"';};?> type="checkbox" value="<?php echo $itemson['id'];?>"/>
+																		<span class="lbl"> <?php echo $itemson['title'];?> </span>
 																	</label>
+																	<?php if(!empty($itemson['children'])) foreach($itemson['children'] as $item):?>
 																	<label class="col-xs-2 w-160">
-																		<input name="rules[]" class="ace ace-checkbox-2 children" type="checkbox" value="{$vv['id']}"/>
-																		<span class="lbl"> 系统介绍</span>
+																		<input name="rules[]" class="ace ace-checkbox-2 children" <?php if(in_array($item['id'],$auth_group['rules'])){echo 'checked="checked"';};?> type="checkbox" value="<?php echo $item['id'];?>"/>
+																		<span class="lbl"> <?php echo $item['title'];?> </span>
 																	</label>
-																	<label class="col-xs-2 w-160">
-																		<input name="rules[]" class="ace ace-checkbox-2 children" type="checkbox" value="{$vv['id']}"/>
-																		<span class="lbl"> 系统介绍</span>
-																	</label>
-																	<label class="col-xs-2 w-160">
-																		<input name="rules[]" class="ace ace-checkbox-2 children" type="checkbox" value="{$vv['id']}"/>
-																		<span class="lbl"> 系统介绍</span>
-																	</label>
-																	<label class="col-xs-2 w-160">
-																		<input name="rules[]" class="ace ace-checkbox-2 children" type="checkbox" value="{$vv['id']}"/>
-																		<span class="lbl"> 系统介绍</span>
-																	</label>
-																	<label class="col-xs-2 w-160">
-																		<input name="rules[]" class="ace ace-checkbox-2 children" type="checkbox" value="{$vv['id']}"/>
-																		<span class="lbl"> 系统介绍</span>
-																	</label>
-																	<label class="col-xs-2 w-160">
-																		<input name="rules[]" class="ace ace-checkbox-2 children" type="checkbox" value="{$vv['id']}"/>
-																		<span class="lbl"> 系统介绍</span>
-																	</label>
-																	
-
+																	<?php endforeach;?>
+																	<?php endforeach;?>
 																</div>
+																<?php endif;?>
 															</div>
+															<?php endforeach;?>
 														</div>
 
 													</div>
@@ -122,7 +107,7 @@
 											</div>
 
 											<div class="form-group">
-												<input type="hidden" name="id" id="id" value="0">
+												<input type="hidden" name="id" id="id" value="<?php echo $auth_group['id'];?>">
 												<div class="col-sm-offset-2 col-sm-10">
 													<button class="btn btn-primary" type="submit">保存</button>
 													<button class="btn btn-default" type="reset">重置</button>
@@ -146,21 +131,12 @@
 		<!-- END SECTION -->
 		<!-- BEGIN JS -->
 		<?php $this->load->view('Public/footjs.html');?>
+		<script src="<?php echo base_url('Public/js/pkadmin/authgroup.js');?>"></script>
+		<!-- PKADMIN AUTHGROUP JS -->
 		<!--  INLINE SCRIPYS RELATED TO THIS PAGE -->
 		<script type="text/javascript">
-			$(".children").click(function() {
-				$(this).parent().parent().parent().parent().find(".father").prop("checked", true);
-			})
-			$(".father").click(function() {
-				if(this.checked) {
-					$(this).parent().parent().parent().parent().find(".children").prop("checked", true);
-				} else {
-					$(this).parent().parent().parent().parent().find(".children").prop("checked", false);
-				}
-			})
 		</script>
 		<!-- END JS -->
 	</body>
-	<!--<?php if(in_array($v['id'],$group['rules'])){echo 'checked="checked"';};?>  value="{$v['id']}"-->
 
 </html>

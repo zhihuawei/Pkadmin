@@ -66,6 +66,20 @@ class Authgroup extends Pkadmin_Controller {
 	 */
 	public function edit($id) {
 		$data = $this -> data;
+		//获得所有启用的操作菜单
+		$auth_rule = $this -> ag -> get_all_auth_rule();
+		$data['auth_rule_tree'] = $this -> get_menu_tree($auth_rule);
+		$auth_group = $this -> ag -> get_auth_group_info($id);
+		if (!$auth_group) {
+			$error['msg'] = "参数错误，请检查！";
+			$error['url'] = site_url("Pkadmin/Authgroup/index");
+			$error['wait'] = 3;
+			$data['error'] = $error;
+			$this -> load -> view('error.html', $data);
+			return;
+		}
+		$auth_group['rules'] = explode(',', $auth_group['rules']);
+		$data['auth_group'] = $auth_group;
 		$this -> load -> view('authgroup_edit.html', $data);
 	}
 
