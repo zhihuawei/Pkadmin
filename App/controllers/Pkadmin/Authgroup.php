@@ -82,6 +82,8 @@ class Authgroup extends Pkadmin_Controller {
 	/**
 	 * 保存角色
 	 */
-	public function addedit
+	public function addedit(){
+		var_dump($_POST);
+	}
 
 }

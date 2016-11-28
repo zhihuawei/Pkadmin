@@ -41,7 +41,7 @@
 								</header>
 								<div class="panel-body">
 									<div class="form">
-										<form class="cmxform form-horizontal tasi-form" id="authgroupaddForm" method="post" action="<?php echo site_url('Pkadmin/Authgroup/addedit');?>">
+										<form class="cmxform form-horizontal tasi-form" id="authgroupaddForm" method="post" action="<?php echo site_url('Pkadmin/Authgroup/update');?>">
 											<div class="form-group">
 												<label for="title" class="control-label col-sm-2">角色名称</label>
 												<div class="col-sm-3">
@@ -74,7 +74,7 @@
 															<div class="panel panel-success">
 																<div class="panel-heading form-inline">
 																	<label>
-																		<input name="rules[]" class="ace ace-checkbox-2 father" type="checkbox" value="{$v['id']}"/>
+																		<input name="rules[]" class="ace ace-checkbox-2 father" type="checkbox" value="<?php echo $itemfather['id'];?>"/>
 																		<span class="lbl"> <?php echo $itemfather['title'];?> </span>
 																	</label>
 																	<span class="tools pull-right">
@@ -85,12 +85,12 @@
 																<div class="panel-body panel-border">
 																	<?php foreach($itemfather['children'] as $itemson):?>
 																	<label class="col-xs-2 w-160">
-																		<input name="rules[]" class="ace ace-checkbox-2 children" type="checkbox" value="{$vv['id']}"/>
+																		<input name="rules[]" class="ace ace-checkbox-2 children" type="checkbox" value="<?php echo $itemson['id'];?>"/>
 																		<span class="lbl"> <?php echo $itemson['title'];?> </span>
 																	</label>
 																	<?php if(!empty($itemson['children'])) foreach($itemson['children'] as $item):?>
 																	<label class="col-xs-2 w-160">
-																		<input name="rules[]" class="ace ace-checkbox-2 children" type="checkbox" value="{$vv['id']}"/>
+																		<input name="rules[]" class="ace ace-checkbox-2 children" type="checkbox" value="<?php echo $item['id'];?>"/>
 																		<span class="lbl"> <?php echo $item['title'];?> </span>
 																	</label>
 																	<?php endforeach;?>
