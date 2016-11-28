@@ -80,9 +80,9 @@ class Authgroup extends Pkadmin_Controller {
 	}
 	
 	/**
-	 * 保存角色
+	 * 新增或修改角色角色信息
 	 */
-	public function addedit(){
+	public function update(){
 		var_dump($_POST);
 	}
 
