@@ -131,9 +131,27 @@ class Admingroup_model extends CI_Model {
 
 	/**
 	 * 函数：获取所有启用的操作规则
+	 * @return array
 	 */
 	public function get_all_auth_rule() {
 		return $this -> db -> select("id,pid,title") -> where("status = 1") -> order_by('sort', 'ASC') -> get(self::TBL_AUTHRULE) -> result_array();
+	}
+
+	/**
+	 * 函数：插入新增角色信息
+	 * @param array $params
+	 * @return bool
+	 */
+	public function insert_auth_group($params) {
+		return $this -> db -> insert(self::TBL_AUTHGROUP, $params);
+	}
+
+	/**
+	 * 函数：更新编辑角色信息
+	 */
+	public function update_auth_group($id, $params) {
+		$condition['id'] = $id;
+		return $this -> db -> where($condition) -> update(self::TBL_AUTHGROUP, $params);
 	}
 
 }
