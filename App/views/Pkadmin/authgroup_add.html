@@ -43,66 +43,76 @@
 									<div class="form">
 										<form class="cmxform form-horizontal tasi-form" id="authgroupeditForm" method="post" action="<?php echo site_url('Pkadmin/Authgroup/addedit');?>">
 											<div class="form-group">
-												<label for="title" class="control-label col-lg-2">角色名称</label>
-												<div class="col-lg-3">
+												<label for="title" class="control-label col-sm-2">角色名称</label>
+												<div class="col-sm-3">
 													<input class="form-control bg-white" id="title" name="title" type="text" value="">
 												</div>
 											</div>
 
 											<div class="form-group">
-												<label for="status" class="control-label col-lg-2">角色状态</label>
+												<label for="status" class="control-label col-sm-2">角色状态</label>
 												<div class="m-bot15">
-													<div class="col-lg-3">
+													<div class="col-sm-3">
 														<input class="form-control" id="status" name="status" type="checkbox" data-toggle="switch">
 													</div>
 												</div>
 											</div>
 
 											<div class="form-group">
-												<label for="note" class="control-label col-lg-2">角色描述</label>
-												<div class="col-lg-3">
+												<label for="note" class="control-label col-sm-2">角色描述</label>
+												<div class="col-sm-3">
 													<textarea class="form-control" id="note" name="note" rows="3"></textarea>
 												</div>
 											</div>
 
 											<div class="form-group">
-												<label for="auth" class="control-label col-lg-2">权限选择</label>
-												<div class="col-lg-8">
-													<div class="col-lg-12 p-l-0">
-														<div class="panel panel-success">
-															<div class="panel-heading form-inline">
-																<input name="rules[]" class="checkbox w-20 m-r-5 father" type="checkbox" />系统介绍
-																<span class="tools pull-right">
-																<a href="javascript:;" class="fa fa-chevron-down"></a>
-															</span>
-															</div>
-															<div class="panel-body panel-border">
+												<label for="auth" class="control-label col-sm-2">权限选择</label>
+												<div class="col-sm-9">
+													<div class="col-sm-10">
+														<div class="row">
+															<div class="panel panel-success">
+																<div class="panel-heading form-inline">
+																	<label>
+																		<input name="rules[]" class="ace ace-checkbox-2 father" type="checkbox" value="{$v['id']}"/>
+																		<span class="lbl"> 系统介绍 </span>
+																	</label>
+																	<span class="tools pull-right">
+																		<a href="javascript:;" class="fa fa-chevron-down"></a>
+																	</span>
+																</div>
+																<div class="panel-body panel-border">
 
-																<div class="col-lg-2 form-inline">
-																	<input name="rules[]" class="checkbox w-16 m-r-5 children" type="checkbox" />
-																	<span>系统介绍</span>
-																</div>
-																<div class="col-lg-2 form-inline">
-																	<input name="rules[]" class="checkbox w-16 m-r-5 children" type="checkbox" />
-																	<span>系统介绍</span>
-																</div>
-																<div class="col-lg-2 form-inline">
-																	<input name="rules[]" class="checkbox w-16 m-r-5 children" type="checkbox" />
-																	<span>系统介绍</span>
-																</div>
-																<div class="col-lg-2 form-inline">
-																	<input name="rules[]" class="checkbox w-16 m-r-5 children" type="checkbox" />
-																	<span>系统介绍</span>
-																</div>
-																<div class="col-lg-2 form-inline">
-																	<input name="rules[]" class="checkbox w-16 m-r-5 children" type="checkbox" />
-																	<span>系统介绍</span>
-																</div>
-																<div class="col-lg-2 form-inline">
-																	<input name="rules[]" class="checkbox w-16 m-r-5 children" type="checkbox" />
-																	<span>系统介绍</span>
-																</div>
+																	<label class="col-xs-2 w-160">
+																		<input name="rules[]" class="ace ace-checkbox-2 children" type="checkbox" value="{$vv['id']}"/>
+																		<span class="lbl"> 系统介绍</span>
+																	</label>
+																	<label class="col-xs-2 w-160">
+																		<input name="rules[]" class="ace ace-checkbox-2 children" type="checkbox" value="{$vv['id']}"/>
+																		<span class="lbl"> 系统介绍</span>
+																	</label>
+																	<label class="col-xs-2 w-160">
+																		<input name="rules[]" class="ace ace-checkbox-2 children" type="checkbox" value="{$vv['id']}"/>
+																		<span class="lbl"> 系统介绍</span>
+																	</label>
+																	<label class="col-xs-2 w-160">
+																		<input name="rules[]" class="ace ace-checkbox-2 children" type="checkbox" value="{$vv['id']}"/>
+																		<span class="lbl"> 系统介绍</span>
+																	</label>
+																	<label class="col-xs-2 w-160">
+																		<input name="rules[]" class="ace ace-checkbox-2 children" type="checkbox" value="{$vv['id']}"/>
+																		<span class="lbl"> 系统介绍</span>
+																	</label>
+																	<label class="col-xs-2 w-160">
+																		<input name="rules[]" class="ace ace-checkbox-2 children" type="checkbox" value="{$vv['id']}"/>
+																		<span class="lbl"> 系统介绍</span>
+																	</label>
+																	<label class="col-xs-2 w-160">
+																		<input name="rules[]" class="ace ace-checkbox-2 children" type="checkbox" value="{$vv['id']}"/>
+																		<span class="lbl"> 系统介绍</span>
+																	</label>
+																	
 
+																</div>
 															</div>
 														</div>
 
@@ -113,7 +123,7 @@
 
 											<div class="form-group">
 												<input type="hidden" name="id" id="id" value="0">
-												<div class="col-lg-offset-2 col-lg-10">
+												<div class="col-sm-offset-2 col-sm-10">
 													<button class="btn btn-primary" type="submit">保存</button>
 													<button class="btn btn-default" type="reset">重置</button>
 												</div>
@@ -148,7 +158,6 @@
 					$(this).parent().parent().parent().parent().find(".children").prop("checked", false);
 				}
 			})
-			
 		</script>
 		<!-- END JS -->
 	</body>
