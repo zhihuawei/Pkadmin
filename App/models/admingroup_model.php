@@ -129,4 +129,11 @@ class Admingroup_model extends CI_Model {
 		return $this -> db -> where($condition) -> delete(self::TBL_AUTHGROUP);
 	}
 
+	/**
+	 * 函数：获取所有启用的操作规则
+	 */
+	public function get_all_auth_rule() {
+		return $this -> db -> select("id,pid,title") -> where("status = 1") -> order_by('sort', 'ASC') -> get(self::TBL_AUTHRULE) -> result_array();
+	}
+
 }
