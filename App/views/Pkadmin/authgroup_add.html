@@ -131,18 +131,10 @@
 		<!-- END SECTION -->
 		<!-- BEGIN JS -->
 		<?php $this->load->view('Public/footjs.html');?>
+		<script src="<?php echo base_url('Public/js/pkadmin/authgroup.js');?>"></script>
+		<!-- PKADMIN AUTHGROUP JS -->
 		<!--  INLINE SCRIPYS RELATED TO THIS PAGE -->
 		<script type="text/javascript">
-			$(".children").click(function() {
-				$(this).parent().parent().parent().find(".father").prop("checked", true);
-			})
-			$(".father").click(function() {
-				if(this.checked) {
-					$(this).parent().parent().parent().find(".children").prop("checked", true);
-				} else {
-					$(this).parent().parent().parent().find(".children").prop("checked", false);
-				}
-			})
 		</script>
 		<!-- END JS -->
 	</body>

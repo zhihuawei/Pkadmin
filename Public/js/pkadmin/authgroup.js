@@ -10,7 +10,7 @@
  * ==========================================
  */
 
-var Script = function() {
+$(function() {
 
 	$(".children").click(function() {
 		$(this).parent().parent().parent().find(".father").prop("checked", true);
@@ -23,4 +23,31 @@ var Script = function() {
 		}
 	})
 
-}
+});
+
+//表单提交验证
+var Script = function() {
+
+	'use strict';
+
+	$.validator.setDefaults({
+		submitHandler: function(form) {
+			form.submit();
+		}
+	});
+
+
+	$().ready(function() {
+		$("#authgroupaddForm").validate({
+			rules: {
+				title: {
+					required: true,
+				},
+			},
+			messages: {
+				title: "角色名不能为空！",
+			}
+		});
+	});
+	
+}();

@@ -70,8 +70,6 @@ class Authgroup extends Pkadmin_Controller {
 		$data = $this -> data;
 		$auth_rule = $this -> ag -> get_all_auth_rule();
 		$data['auth_rule_tree'] = $this -> get_menu_tree($auth_rule);
-		//		var_dump($data['auth_rult']);
-		//		exit ;
 		$this -> load -> view('authgroup_add.html', $data);
 	}
 
