@@ -30,4 +30,30 @@ class Category extends Pkadmin_Controller {
 		$this -> load -> view('category.html', $data);
 	}
 
+	/**
+	 * 添加文章分类
+	 */
+	public function add() {
+		$data = $this -> data;
+		$this -> load -> view('category_add.html', $data);
+	}
+
+	/**
+	 * 删除文章分类
+	 */
+	public function del() {
+	}
+
+	/**
+	 * 修改文章分类
+	 */
+	public function edit() {
+	}
+
+	/**
+	 * 新增或修改文章分类信息
+	 */
+	public function update() {
+	}
+
 }
