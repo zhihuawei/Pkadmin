@@ -22,4 +22,10 @@ class Category extends Pkadmin_Controller {
 		//		$this -> load -> model('article_model', 'ag');
 	}
 
+	/**
+	 * 文章分类首页-列表
+	 */
+	public function index() {
+	}
+
 }
