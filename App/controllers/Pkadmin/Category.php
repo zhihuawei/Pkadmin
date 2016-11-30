@@ -26,6 +26,8 @@ class Category extends Pkadmin_Controller {
 	 * 文章分类首页-列表
 	 */
 	public function index() {
+		$data = $this -> data;
+		$this -> load -> view('category.html', $data);
 	}
 
 }
