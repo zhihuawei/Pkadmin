@@ -54,6 +54,18 @@ class Category extends Pkadmin_Controller {
 	 * 新增或修改文章分类信息
 	 */
 	public function update() {
+		$data = $this -> data;
+		$id = $this -> input -> post('id');
+		$params['category_name'] = $this -> input -> post('category_name');
+		$params['key_words'] = $this -> input -> post('key_words');
+		$params['sort'] = $this -> input -> post('sort');
+		$params['category_desc'] = $this -> input -> post('category_desc');
+		//修改修改分类
+		if($id){
+			
+		}else{
+			//新增文章分类
+		}
 	}
 
 }
