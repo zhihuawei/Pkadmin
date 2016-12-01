@@ -28,8 +28,6 @@ class Category extends Pkadmin_Controller {
 	public function index() {
 		$data = $this -> data;
 		$data['category_list'] = $this->ac->get_category_list();
-		//var_dump($category_list);
-		//exit;
 		$this -> load -> view('category.html', $data);
 	}
 
@@ -51,6 +49,8 @@ class Category extends Pkadmin_Controller {
 	 * 修改文章分类
 	 */
 	public function edit() {
+		$data = $this -> data;
+		$this -> load -> view('category_edit.html', $data);
 	}
 
 	/**
