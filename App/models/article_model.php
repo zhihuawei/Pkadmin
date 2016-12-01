@@ -16,6 +16,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 
 class Article_model extends CI_Model {
 	const TBL_CATEGORY = 'category';
+	const TBL_ARTICLE = 'article';
 
 	/**
 	 * 函数：获取文章分类列表
@@ -53,6 +54,16 @@ class Article_model extends CI_Model {
 	public function update_category($category_id, $params) {
 		$condition['category_id'] = $category_id;
 		return $this -> db -> where($condition) -> update(self::TBL_CATEGORY, $params);
+	}
+
+	/**
+	 * 函数：删除文章分类
+	 * @param int $category_id 分类id
+	 * @return bool
+	 */
+	public function del_category($category_id) {
+		$condition['category_id'] = $category_id;
+		return $this -> db -> where($condition) -> delete(self::TBL_CATEGORY);
 	}
 
 }
