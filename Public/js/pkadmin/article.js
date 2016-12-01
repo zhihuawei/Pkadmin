@@ -35,10 +35,13 @@ var Script = function() {
 				keywords: {
 					required: true,
 				},
-				sort: {
+				article_title: {
 					required: true,
 				},
-				category_desc: {
+				article_desc: {
+					required: true,
+				},
+				content: {
 					required: true,
 				},
 			},
@@ -46,8 +49,9 @@ var Script = function() {
 			messages: {
 				category_id: "请选择文章分类",
 				keywords: "请为分类输入简要关键字！",
-				sort: "请输入分类排序数值！",
-				category_desc: "请输入分类的简单描述！",
+				article_title: "请输入文章名称！！",
+				article_desc: "请输入文档的简单摘要！",
+				content:"请输入文章正文内容！"
 			}
 		});
 	});

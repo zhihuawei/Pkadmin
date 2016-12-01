@@ -64,7 +64,7 @@
 											<div class="form-group">
 												<label for="article_title" class="control-label col-sm-2">文章名称</label>
 												<div class="col-sm-4">
-													<input class="form-control" id="article_title" name="article_title" type="text" value="" placeholder="分类名称">
+													<input class="form-control" id="article_title" name="article_title" type="text" value="" placeholder="文章名称">
 												</div>
 											</div>
 											
@@ -78,14 +78,41 @@
 											<div class="form-group">
 												<label for="article_desc" class="control-label col-sm-2">文章摘要</label>
 												<div class="col-sm-4">
-													<textarea class="form-control" id="article_desc" name="article_desc" rows="5" placeholder="请输入文章摘要！"></textarea>
+													<textarea class="form-control" id="article_desc" name="article_desc" rows="5" placeholder="文章摘要"></textarea>
+												</div>
+											</div>
+											
+											<div class="form-group last">
+												<label for="article_pic" class="control-label col-sm-2">文章插图</label>
+												<div class="col-sm-3">
+													<div class="fileupload fileupload-new" data-provides="fileupload">
+														<div class="fileupload-new thumbnail">
+															<img src="<?php echo base_url('Public/img/no_image.png');?>">
+														</div>
+														<div class="fileupload-preview fileupload-exists thumbnail">
+														</div>
+														<div>
+															<span class="btn btn-white btn-file">
+																<span class="fileupload-new">
+																	<i class="fa fa-paper-clip"></i> 选择图片
+																</span>
+															<span class="fileupload-exists">
+																<i class="fa fa-undo"></i> 重置
+															</span>
+															<input type="file" class="default" name="article_pic">
+															</span>
+															<a href="#" class="btn btn-danger fileupload-exists" data-dismiss="fileupload">
+																<i class="fa fa-trash"></i> 删除
+															</a>
+														</div>
+													</div>
 												</div>
 											</div>
 											
 											<div class="form-group">
 												<label for="content" class="control-label col-sm-2">文章内容</label>
 												<div class="col-sm-8">
-													<textarea class="wysihtml form-control" id="content" name="content" rows="8"></textarea>
+													<textarea class="wysihtml form-control" id="content" name="content" rows="8" placeholder="文章正文内容"></textarea>
 												</div>
 											</div>
 

@@ -44,15 +44,15 @@
 									<div class="form">
 										<form class="cmxform form-horizontal tasi-form" id="admineditForm" method="post" action="<?php echo site_url('Pkadmin/Administrator/addeditadmininfo');?>" enctype="multipart/form-data">
 											<div class="form-group">
-												<label for="username" class="control-label col-lg-2">用户名</label>
-												<div class="col-lg-3">
+												<label for="username" class="control-label col-sm-2">用户名</label>
+												<div class="col-sm-3">
 													<input class="form-control bg-white" id="username" name="username" type="text" value="<?php echo $admin_info['username'];?>" <?php if($admin_info['admin_id'] == 1) echo 'disabled="disabled"';?>>
 												</div>												
 											</div>
 											
 											<div class="form-group">
-												<label for="group_id" class="control-label col-lg-2">所属用户组</label>
-												<div class="col-lg-3">
+												<label for="group_id" class="control-label col-sm-2">所属用户组</label>
+												<div class="col-sm-3">
 													<select class="form-control m-bot15" name="group_id" <?php if($admin_info['admin_id'] == 1) echo 'disabled="disabled"';?>>
 														<?php foreach($auth_group as $item):?>
 														<option value="<?php echo $item['id'];?>" <?php if($access['group_id'] == $item['id']) echo 'selected="selected"';?>><?php echo $item['title'];?></option>
@@ -62,16 +62,16 @@
 											</div>
 											
 											<div class="form-group">
-												<label for="password" class="control-label col-lg-2">登录密码</label>
-												<div class="col-lg-3">
+												<label for="password" class="control-label col-sm-2">登录密码</label>
+												<div class="col-sm-3">
 													<input class="form-control bg-white" id="password" name="password" type="password" value="">
 												</div>	
-												<label class="control-label col-lg-2 color-red"><i class="fa fa-bolt"></i>&nbsp;为空表示不做修改</label>
+												<label class="control-label col-sm-3 color-red pull-left"><i class="fa fa-bolt"></i>&nbsp;为空表示不做修改</label>
 											</div>
 											
 											<div class="form-group last">
-												<label for="head_pic" class="control-label col-lg-2">头像</label>
-												<div class="col-lg-3">
+												<label for="head_pic" class="control-label col-sm-2">头像</label>
+												<div class="col-sm-3">
 													<div class="fileupload fileupload-new" data-provides="fileupload">
 														<div class="fileupload-new thumbnail">
 															<img src="<?php if(!empty($admin_info['head_pic']['head_pic_140_thump'])){echo base_url($admin_info['head_pic']['head_pic_140_thump']);}else{echo base_url('Public/img/no_image.png');}?>">
@@ -97,8 +97,8 @@
 											</div>
 											
 											<div class="form-group">
-												<label for="sex" class="control-label col-lg-2">性别</label>
-												<div class="col-lg-2">
+												<label for="sex" class="control-label col-sm-2">性别</label>
+												<div class="col-sm-2">
 													<select class="form-control m-bot15" name="sex">
 														<option value="0" <?php if($admin_info['sex'] == 0) echo 'selected="selected"';?>>保密</option>
 														<option value="1" <?php if($admin_info['sex'] == 1) echo 'selected="selected"';?>>男</option>
@@ -108,8 +108,8 @@
 											</div>
 
 											<div class="form-group">
-												<label for="birthday" class="control-label col-lg-2">生日</label>
-												<div class="col-lg-2">
+												<label for="birthday" class="control-label col-sm-2">生日</label>
+												<div class="col-sm-2">
 													<div data-date-viewmode="years" data-date-format="yyyy-mm-dd" data-date="2016-01-01" class="input-append date dpYears w-90p">
 														<input name="birthday" type="text" readonly="" value="<?php echo $admin_info['birthday'];?>" size="16" class="form-control">
 														<span class="input-group-btn add-on">
@@ -122,28 +122,28 @@
 											</div>
 
 											<div class="form-group">
-												<label for="phone" class="control-label col-lg-2">电话</label>
-												<div class="col-lg-3">
+												<label for="phone" class="control-label col-sm-2">电话</label>
+												<div class="col-sm-3">
 													<input class="form-control" id="mobile" name="mobile" type="text" value="<?php echo $admin_info['phone'];?>">
 												</div>
 											</div>
 											
 											<div class="form-group">
-												<label for="qq" class="control-label col-lg-2">QQ</label>
-												<div class="col-lg-3">
+												<label for="qq" class="control-label col-sm-2">QQ</label>
+												<div class="col-sm-3">
 													<input class="form-control" id="qq" name="qq" type="text" value="<?php echo $admin_info['qq'];?>">
 												</div>
 											</div>
 
 											<div class="form-group">
-												<label for="email" class="control-label col-lg-2">E-mail</label>
-												<div class="col-lg-3">
+												<label for="email" class="control-label col-sm-2">E-mail</label>
+												<div class="col-sm-3">
 													<input class="form-control " id="email" name="email" type="email" value="<?php echo $admin_info['email'];?>">
 												</div>
 											</div>
 
 											<div class="form-group">
-												<div class="col-lg-offset-2 col-lg-10">
+												<div class="col-sm-offset-2 col-sm-10">
 													<input type="hidden" name="admin_id" id="admin_id" value="<?php echo $admin_info['admin_id'];?>">
 													<button class="btn btn-primary" type="submit">保存</button>
 													<button class="btn btn-default" type="reset">重置</button>
