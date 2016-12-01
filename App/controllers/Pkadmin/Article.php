@@ -25,7 +25,7 @@ class Article extends Pkadmin_Controller {
 	/**
 	 * 文章管理首页
 	 */
-	public function index() {
+	public function index($offset = '') {
 		$data = $this -> data;
 		$this -> load -> view('article.html', $data);
 	}
