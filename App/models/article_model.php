@@ -18,8 +18,17 @@ class Article_model extends CI_Model {
 	const TBL_CATEGORY = 'category';
 
 	/**
+	 * 函数：获取文章分类列表
+	 * @return array
+	 */
+	public function get_category_list() {
+		return $this -> db -> order_by('sort', 'ASC') -> get(self::TBL_CATEGORY) -> result_array();
+	}
+
+	/**
 	 * 函数：插入文章分类
 	 * @param array $params 文章分类信息
+	 * @return bool
 	 */
 	public function insert_category($params) {
 		return $this -> db -> insert(self::TBL_CATEGORY, $params);

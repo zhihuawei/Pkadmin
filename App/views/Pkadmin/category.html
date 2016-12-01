@@ -45,7 +45,7 @@
 									<nav class="navbar navbar-default">
 										<form class=" navbar-form form-inline " role="search ">
 											<div class="form-group pull-right ">
-												<a href="# " class="btn btn-primary pull-right "><i class="fa fa-plus "></i>添加分类</a>
+												<a href="<?php echo site_url('Pkadmin/Category/add');?>" class="btn btn-primary pull-right "><i class="fa fa-plus "></i>添加分类</a>
 											</div>
 										</form>
 									</nav>
@@ -60,28 +60,32 @@
 												<th class="text-center "><i class="fa fa-calendar-o "></i> 操作 </th>
 											</tr>
 										</thead>
-										<!--<tbody>
-											<?php foreach($auth_group as $item):?>
+										<tbody>
+											<?php foreach($category_list as $item):?>
 											<tr>
 												<td class="text-center ">
-													<?php echo $item['id'];?>
+													<?php echo $item['category_id'];?>
 												</td>
 												<td class="text-center ">
-													<?php echo $item['title'];?>
+													<?php echo $item['category_name'];?>
 												</td>
 												<td class="text-center ">
-													<?php if($item['status'] == 1) echo "正常 "; else echo "禁用 ";?>
+													<?php echo $item['category_desc'];?>
 												</td>
 												<td class="text-center ">
-													<?php echo $item['note'];?>
+													<?php echo $item['sort'];?>
 												</td>
-												<td class="text-center ">													
-													<?php if($item['id'] != 1) echo '<a href='.site_url('Pkadmin/Authgroup/edit').'/'.$item['id'].' class="btn btn-primary btn-xs" title="修改"><li class="fa fa-pencil"></li></a>'; else echo '<button class="btn btn-default btn-xs" title="禁止操作"><li class="fa fa-ban"></li></button>'?>
-													<?php if($item['id'] != 1) echo '<a val='.site_url('Pkadmin/Authgroup/del').'/'.$item['id'].' class="btn btn-danger btn-xs del" title="删除"><li class="fa fa-trash-o"></li></a>';?>
+												<td class="text-center ">
+													<a href="<?php echo site_url('Pkadmin/Category/edit');?>" class="btn btn-primary btn-xs" title="修改">
+														<li class="fa fa-pencil"></li>
+													</a>
+													<a val="<?php echo site_url('Pkadmin/Category/edit').'/'.$item['category_id'];?>" class="btn btn-danger btn-xs del" title="删除">
+														<li class="fa fa-trash-o"></li>
+													</a>
 												</td>
 											</tr>
 											<?php endforeach;?>
-										</tbody>-->
+										</tbody>
 									</table>
 								</div>
 							</section>

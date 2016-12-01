@@ -27,6 +27,9 @@ class Category extends Pkadmin_Controller {
 	 */
 	public function index() {
 		$data = $this -> data;
+		$data['category_list'] = $this->ac->get_category_list();
+		//var_dump($category_list);
+		//exit;
 		$this -> load -> view('category.html', $data);
 	}
 
