@@ -18,7 +18,6 @@ class Category extends Pkadmin_Controller {
 
 	public function __construct() {
 		parent::__construct();
-		$this -> load -> library('pagination');
 		$this -> load -> model('article_model', 'ac');
 	}
 
