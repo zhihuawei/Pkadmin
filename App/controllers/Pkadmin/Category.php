@@ -65,6 +65,9 @@ class Category extends Pkadmin_Controller {
 			
 		}else{
 			//新增文章分类
+			if()
+			var_dump($params);
+			
 		}
 	}
 
