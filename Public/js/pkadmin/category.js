@@ -27,7 +27,7 @@ var Script = function() {
 	});
 
 	$().ready(function() {
-		$("#categoryaddForm").validate({
+		$("#categoryForm").validate({
 			rules: {
 				category_name: {
 					required: true,
