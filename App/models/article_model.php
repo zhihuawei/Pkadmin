@@ -44,4 +44,15 @@ class Article_model extends CI_Model {
 		return $this -> db -> insert(self::TBL_CATEGORY, $params);
 	}
 
+	/**
+	 * 函数：修改文章分类
+	 * @param int $category_id 分类id
+	 * @param array $params 文章分类信息
+	 * @return bool
+	 */
+	public function update_category($category_id, $params) {
+		$condition['category_id'] = $category_id;
+		return $this -> db -> where($condition) -> update(self::TBL_CATEGORY, $params);
+	}
+
 }

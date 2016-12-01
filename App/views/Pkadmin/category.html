@@ -76,10 +76,10 @@
 													<?php echo $item['sort'];?>
 												</td>
 												<td class="text-center ">
-													<a href="<?php echo site_url('Pkadmin/Category/edit');?>" class="btn btn-primary btn-xs" title="修改">
+													<a href="<?php echo site_url('Pkadmin/Category/edit').'/'.$item['category_id'];?>" class="btn btn-primary btn-xs" title="修改">
 														<li class="fa fa-pencil"></li>
 													</a>
-													<a val="<?php echo site_url('Pkadmin/Category/edit').'/'.$item['category_id'];?>" class="btn btn-danger btn-xs del" title="删除">
+													<a val="<?php echo site_url('Pkadmin/Category/del').'/'.$item['category_id'];?>" class="btn btn-danger btn-xs del" title="删除">
 														<li class="fa fa-trash-o"></li>
 													</a>
 												</td>

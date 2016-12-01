@@ -27,7 +27,7 @@ class Category extends Pkadmin_Controller {
 	 */
 	public function index() {
 		$data = $this -> data;
-		$data['category_list'] = $this->ac->get_category_list();
+		$data['category_list'] = $this -> ac -> get_category_list();
 		$this -> load -> view('category.html', $data);
 	}
 
@@ -48,8 +48,9 @@ class Category extends Pkadmin_Controller {
 	/**
 	 * 修改文章分类
 	 */
-	public function edit() {
+	public function edit($id) {
 		$data = $this -> data;
+		$data['category'] = $this -> ac -> get_category_info($id);
 		$this -> load -> view('category_edit.html', $data);
 	}
 
@@ -63,8 +64,23 @@ class Category extends Pkadmin_Controller {
 		$params['keywords'] = $this -> input -> post('keywords');
 		$params['sort'] = $this -> input -> post('sort');
 		$params['category_desc'] = $this -> input -> post('category_desc');
-		//修改修改分类
+
 		if ($id) {
+			//修改修改分类
+			if ($this -> ac -> update_category($id, $params)) {
+				$this -> pk -> add_log('修改文章分类：' . $params['category_name'], $this -> ADMINISTRSTORS['admin_id'], $this -> ADMINISTRSTORS['username']);
+				$success['msg'] = "修改文章分类成功！";
+				$success['url'] = site_url("Pkadmin/Category/index");
+				$success['wait'] = 3;
+				$data['success'] = $success;
+				$this -> load -> view('success.html', $data);
+			} else {
+				$error['msg'] = "修改文章分类失败！";
+				$error['url'] = site_url("Pkadmin/Category/index");
+				$error['wait'] = 3;
+				$data['error'] = $error;
+				$this -> load -> view('error.html', $data);
+			}
 
 		} else {
 			//新增文章分类
