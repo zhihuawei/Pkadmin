@@ -29,10 +29,33 @@ class Article extends Pkadmin_Controller {
 		$data = $this -> data;
 		$this -> load -> view('article.html', $data);
 	}
-	
+
+	/**
+	 * 新增文章
+	 */
 	public function add() {
 		$data = $this -> data;
 		$this -> load -> view('article_add.html', $data);
+	}
+
+	/**
+	 * 修改文章
+	 */
+	public function edit() {
+	}
+
+	/**
+	 * 删除文章
+	 */
+	public function del() {
+	}
+
+	/**
+	 * 新增修改文章内容
+	 */
+	public function update() {
+		$data = $this -> data;
+		
 	}
 
 }
