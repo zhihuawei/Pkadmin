@@ -22,7 +22,7 @@ class Article_model extends CI_Model {
 	 * @param array $params 文章分类信息
 	 */
 	public function insert_category($params) {
-
+		return $this -> db -> insert(self::TBL_CATEGORY, $params);
 	}
 
 }
