@@ -25,7 +25,7 @@ class Personal extends Pkadmin_Controller {
 	 */
 	public function index() {
 		$data = $this -> data;
-		$this -> load -> view('personal_index.html', $data);
+		$this -> load -> view('personal.html', $data);
 	}
 
 	/**

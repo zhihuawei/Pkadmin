@@ -29,7 +29,7 @@ var Script = function() {
 	$().ready(function() {
 		$("#articleForm").validate({
 			rules: {
-				category_name: {
+				category_id: {
 					required: true,
 				},
 				keywords: {
@@ -44,7 +44,7 @@ var Script = function() {
 			},
 
 			messages: {
-				category_name: "请输入分类名称！",
+				category_id: "请选择文章分类",
 				keywords: "请为分类输入简要关键字！",
 				sort: "请输入分类排序数值！",
 				category_desc: "请输入分类的简单描述！",
@@ -53,3 +53,13 @@ var Script = function() {
 	});
 
 }();
+
+$('.wysihtml').wysihtml5({
+	"font-styles": true, //Font styling, e.g. h1, h2, etc. Default true
+    "emphasis": true, //Italics, bold, etc. Default true
+    "lists": true, //(Un)ordered lists, e.g. Bullets, Numbers. Default true
+    "html": true, //Button which allows you to edit the generated HTML. Default false
+    "link": true, //Button to insert a link. Default true
+    "image": true, //Button to insert an image. Default true,
+    "color": true //Button to change color of font
+});
