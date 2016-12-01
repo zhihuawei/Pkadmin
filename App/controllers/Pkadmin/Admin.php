@@ -40,7 +40,7 @@ class Admin extends Pkadmin_Controller {
 		//生成分页信息
 		$data['pageinfo'] = $this -> pagination -> create_links();
 		$data['admin_log'] = $this -> admin -> get_admin_log_list($this -> ADMINISTRSTORS['admin_id'], $config['per_page'], $offset);
-		$this -> load -> view('admin_index.html', $data);
+		$this -> load -> view('admin.html', $data);
 	}
 
 }

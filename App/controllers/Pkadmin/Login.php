@@ -51,7 +51,7 @@ class Login extends CI_Controller {
 			$data['success'] = $success;
 			$this -> load -> view('Pkadmin/success.html', $data);
 		} else {
-			$this -> load -> view('Pkadmin/login_index.html', $data);
+			$this -> load -> view('Pkadmin/login.html', $data);
 		}
 	}
 
