@@ -67,11 +67,21 @@ class Article_model extends CI_Model {
 	}
 
 	/**
+	 * 函数：获取文章数量
+	 * @return int 文章总数
+	 */
+	public function get_article_count() {
+		return $this -> db -> count_all(self::TBL_ARTICLE);
+	}
+
+	/**
 	 * 函数：获取文章列表
+	 * @param int $limit 每页显示数
+	 * @param int $offset 偏移量
 	 * @return array
 	 */
-	public function get_article_list() {
-		return $this -> db -> order_by('edit_time', 'DESC') -> get(self::TBL_ARTICLE) -> result_array();
+	public function get_article_list($limit, $offset) {
+		return $this -> db -> order_by('edit_time', 'DESC') -> limit($limit, $offset) -> get(self::TBL_ARTICLE) -> result_array();
 	}
 
 	/**
