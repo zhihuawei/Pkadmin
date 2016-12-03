@@ -66,4 +66,24 @@ class Article_model extends CI_Model {
 		return $this -> db -> where($condition) -> delete(self::TBL_CATEGORY);
 	}
 
+	/**
+	 * 函数：插入文章
+	 * @param array $params 文章信息
+	 * @return bool
+	 */
+	public function insert_article($params) {
+		return $this -> db -> insert(self::TBL_ARTICLE, $params);
+	}
+
+	/**
+	 * 函数：修改文章
+	 * @param int $article_id 文章分类id
+	 * @param array $params 文章信息
+	 * @return bool
+	 */
+	public function update_article($article_id, $params) {
+		$condition['article_id'] = $article_id;
+		return $this -> db -> where($condition) -> update(self::TBL_ARTICLE, $params);
+	}
+
 }
