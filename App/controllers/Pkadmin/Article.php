@@ -30,7 +30,7 @@ class Article extends Pkadmin_Controller {
 		//配置分页信息
 		$config['base_url'] = site_url('Pkadmin/Article/index/');
 		$config['total_rows'] = $this -> ac -> get_article_count();
-		$config['per_page'] = 2;
+		$config['per_page'] = 10;
 		//初始化分类页
 		$this -> pagination -> initialize($config);
 		//生成分页信息
@@ -56,9 +56,10 @@ class Article extends Pkadmin_Controller {
 	/**
 	 * 修改文章
 	 */
-	public function edit() {
+	public function edit($id) {
 		$data = $this -> data;
 		$data['category_list'] = $this -> ac -> get_category_list();
+		$data['article'] = $this -> ac -> get_article_info($id);
 		$this -> load -> view('article_edit.html', $data);
 	}
 
@@ -108,6 +109,20 @@ class Article extends Pkadmin_Controller {
 		}
 		if ($id) {
 			//修改文章
+			if ($this -> ac -> update_article($id, $params)) {
+				$this -> pk -> add_log('修改文章：' . $params['article_title'], $this -> ADMINISTRSTORS['admin_id'], $this -> ADMINISTRSTORS['username']);
+				$success['msg'] = "修改文章成功！";
+				$success['url'] = site_url("Pkadmin/Article/index");
+				$success['wait'] = 3;
+				$data['success'] = $success;
+				$this -> load -> view('success.html', $data);
+			} else {
+				$error['msg'] = "修改文章失败！";
+				$error['url'] = site_url("Pkadmin/Article/index");
+				$error['wait'] = 3;
+				$data['error'] = $error;
+				$this -> load -> view('error.html', $data);
+			}
 		} else {
 			//插入文章
 			$params['issue_time'] = time();

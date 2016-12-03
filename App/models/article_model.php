@@ -85,6 +85,16 @@ class Article_model extends CI_Model {
 	}
 
 	/**
+	 * 函数：获取文章信息
+	 * @param int $article_id 文章id
+	 * @return array 文章信息
+	 */
+	public function get_article_info($article_id) {
+		$condition['article_id'] = $article_id;
+		return $this -> db -> where($condition) -> get(self::TBL_ARTICLE) -> row_array();
+	}
+
+	/**
 	 * 函数：插入文章
 	 * @param array $params 文章信息
 	 * @return bool
