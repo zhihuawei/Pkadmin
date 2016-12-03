@@ -35,7 +35,12 @@ class Article extends Pkadmin_Controller {
 		$this -> pagination -> initialize($config);
 		//生成分页信息
 		$data['pageinfo'] = $this -> pagination -> create_links();
-		$data['article_list'] = $this -> ac -> get_article_list($config['per_page'], $offset);
+		$article_list = $this -> ac -> get_article_list($config['per_page'], $offset);
+		foreach ($article_list as $k => $v) {
+			$catrgory = $this -> ac -> get_category_info($v['category_id']);
+			$article_list[$k]['category_name'] = $catrgory['category_name'];
+		}
+		$data['article_list'] = $article_list;
 		$this -> load -> view('article.html', $data);
 	}
 

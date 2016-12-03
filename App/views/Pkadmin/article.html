@@ -57,6 +57,7 @@
 												<th class="text-center "><i class="fa fa-edit "></i> 文章名称 </th>
 												<th class="text-center "><i class="fa fa-sitemap "></i> 所属分类 </th>
 												<th class="text-center "><i class="fa fa-book"></i> 文章摘要 </th>
+												<th class="text-center "><i class="fa fa-clock-o "></i> 发布时间 </th>
 												<th class="text-center "><i class="fa fa-calendar-o "></i> 操作 </th>
 											</tr>
 										</thead>
@@ -70,10 +71,13 @@
 													<?php echo $item['article_title'];?>
 												</td>
 												<td class="text-center ">
-													<?php echo $item['article_desc'];?>
+													<?php echo $item['category_name'];?>
 												</td>
 												<td class="text-center ">
 													<?php echo $item['article_desc'];?>
+												</td>
+												<td class="text-center ">
+													<?php echo date("Y-m-d H:i:s",$item['issue_time']);?>
 												</td>
 												<td class="text-center ">
 													<a href="<?php echo site_url('Pkadmin/Article/edit').'/'.$item['article_id'];?>" class="btn btn-primary btn-xs" title="修改">
