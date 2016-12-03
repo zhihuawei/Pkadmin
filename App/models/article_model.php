@@ -67,6 +67,14 @@ class Article_model extends CI_Model {
 	}
 
 	/**
+	 * 函数：获取文章分类下文章数
+	 */
+	public function get_article_of_category($category_id) {
+		$condition['category_id'] = $category_id;
+		return $this -> db -> where($condition) -> count_all_results(self::TBL_ARTICLE);
+	}
+
+	/**
 	 * 函数：获取文章数量
 	 * @return int 文章总数
 	 */
@@ -112,6 +120,16 @@ class Article_model extends CI_Model {
 	public function update_article($article_id, $params) {
 		$condition['article_id'] = $article_id;
 		return $this -> db -> where($condition) -> update(self::TBL_ARTICLE, $params);
+	}
+
+	/**
+	 * 函数：删除文章
+	 * @param int $article_id 文章分类id
+	 * @return bool
+	 */
+	public function del_article($article_id) {
+		$condition['article_id'] = $article_id;
+		return $this -> db -> where($condition) -> delete(self::TBL_ARTICLE);
 	}
 
 }

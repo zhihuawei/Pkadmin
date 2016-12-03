@@ -66,7 +66,22 @@ class Article extends Pkadmin_Controller {
 	/**
 	 * 删除文章
 	 */
-	public function del() {
+	public function del($id) {
+		$data = $this -> data;
+		if ($this -> ac -> del_article($id)) {
+			$this -> pk -> add_log('删除文章，ID：' . $id, $this -> ADMINISTRSTORS['admin_id'], $this -> ADMINISTRSTORS['username']);
+			$success['msg'] = "删除文章操作成功！";
+			$success['url'] = site_url("Pkadmin/Article/index");
+			$success['wait'] = 3;
+			$data['success'] = $success;
+			$this -> load -> view('success.html', $data);
+		} else {
+			$error['msg'] = "删除文章操作失败！";
+			$error['url'] = site_url("Pkadmin/Article/index");
+			$error['wait'] = 3;
+			$data['error'] = $error;
+			$this -> load -> view('error.html', $data);
+		}
 	}
 
 	/**
@@ -141,7 +156,6 @@ class Article extends Pkadmin_Controller {
 				$this -> load -> view('error.html', $data);
 			}
 		}
-
 	}
 
 }

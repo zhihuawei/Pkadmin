@@ -44,14 +44,14 @@ class Category extends Pkadmin_Controller {
 	public function del($id) {
 		$data = $this -> data;
 		//分类下存在文章，不允许删除
-		//		if ($this -> ac -> get_article_of_category($id)) {
-		//			$error['msg'] = "此分类下存在文章，不允许删除！";
-		//			$error['url'] = site_url("Pkadmin/Category/index");
-		//			$error['wait'] = 3;
-		//			$data['error'] = $error;
-		//			$this -> load -> view('error.html', $data);
-		//			return;
-		//		}
+		if ($this -> ac -> get_article_of_category($id)) {
+			$error['msg'] = "此分类下存在文章，不允许删除！";
+			$error['url'] = site_url("Pkadmin/Category/index");
+			$error['wait'] = 3;
+			$data['error'] = $error;
+			$this -> load -> view('error.html', $data);
+			return;
+		}
 		if ($this -> ac -> del_category($id)) {
 			$this -> pk -> add_log('删除文章分类，ID：' . $id, $this -> ADMINISTRSTORS['admin_id'], $this -> ADMINISTRSTORS['username']);
 			$success['msg'] = "删除文章分类操作成功！";
