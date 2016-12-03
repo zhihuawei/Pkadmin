@@ -35,6 +35,7 @@ class Article extends Pkadmin_Controller {
 	 */
 	public function add() {
 		$data = $this -> data;
+		$data['category_list'] = $this -> ac -> get_category_list();
 		$this -> load -> view('article_add.html', $data);
 	}
 
@@ -42,6 +43,9 @@ class Article extends Pkadmin_Controller {
 	 * 修改文章
 	 */
 	public function edit() {
+		$data = $this -> data;
+		$data['category_list'] = $this -> ac -> get_category_list();
+		$this -> load -> view('article_edit.html', $data);
 	}
 
 	/**
@@ -55,7 +59,7 @@ class Article extends Pkadmin_Controller {
 	 */
 	public function update() {
 		$data = $this -> data;
-		
+
 	}
 
 }
