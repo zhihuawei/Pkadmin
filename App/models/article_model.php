@@ -67,6 +67,14 @@ class Article_model extends CI_Model {
 	}
 
 	/**
+	 * 函数：获取文章列表
+	 * @return array
+	 */
+	public function get_article_list() {
+		return $this -> db -> order_by('edit_time', 'DESC') -> get(self::TBL_ARTICLE) -> result_array();
+	}
+
+	/**
 	 * 函数：插入文章
 	 * @param array $params 文章信息
 	 * @return bool
