@@ -45,7 +45,7 @@
 									<nav class="navbar navbar-default">
 										<form class=" navbar-form form-inline " role="search ">
 											<div class="form-group pull-right ">
-												<a href="<?php echo site_url('Pkadmin/Category/add');?>" class="btn btn-primary pull-right "><i class="fa fa-plus "></i>添加分类</a>
+												<a href="<?php echo site_url('Pkadmin/Article/add');?>" class="btn btn-primary pull-right "><i class="fa fa-plus "></i>新增文章</a>
 											</div>
 										</form>
 									</nav>
@@ -60,33 +60,38 @@
 												<th class="text-center "><i class="fa fa-calendar-o "></i> 操作 </th>
 											</tr>
 										</thead>
-										<!--<tbody>
-											<?php foreach($category_list as $item):?>
+										<tbody>
+											<?php foreach($article_list as $item):?>
 											<tr>
 												<td class="text-center ">
-													<?php echo $item['category_id'];?>
+													<?php echo $item['article_id'];?>
 												</td>
 												<td class="text-center ">
-													<?php echo $item['category_name'];?>
+													<?php echo $item['article_title'];?>
 												</td>
 												<td class="text-center ">
-													<?php echo $item['category_desc'];?>
+													<?php echo $item['article_desc'];?>
 												</td>
 												<td class="text-center ">
-													<?php echo $item['sort'];?>
+													<?php echo $item['article_desc'];?>
 												</td>
 												<td class="text-center ">
-													<a href="<?php echo site_url('Pkadmin/Category/edit').'/'.$item['category_id'];?>" class="btn btn-primary btn-xs" title="修改">
+													<a href="<?php echo site_url('Pkadmin/Article/edit').'/'.$item['article_id'];?>" class="btn btn-primary btn-xs" title="修改">
 														<li class="fa fa-pencil"></li>
 													</a>
-													<a val="<?php echo site_url('Pkadmin/Category/del').'/'.$item['category_id'];?>" class="btn btn-danger btn-xs del" title="删除">
+													<a val="<?php echo site_url('Pkadmin/Article/del').'/'.$item['article_id'];?>" class="btn btn-danger btn-xs del" title="删除">
 														<li class="fa fa-trash-o"></li>
 													</a>
 												</td>
 											</tr>
 											<?php endforeach;?>
-										</tbody>-->
+										</tbody>
 									</table>
+									<!-- PAGEINFO ROW-->
+									<div class="text-right m-r-15">
+										<?php echo $pageinfo;?>
+									</div>
+									<!-- END PAGEINFO -->
 								</div>
 							</section>
 						</div>

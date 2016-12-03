@@ -27,6 +27,15 @@ class Article extends Pkadmin_Controller {
 	 */
 	public function index($offset = '') {
 		$data = $this -> data;
+		//配置分页信息
+		$config['base_url'] = site_url('Pkadmin/Article/index/');
+		$config['total_rows'] = $this -> ac -> get_article_count();
+		$config['per_page'] = 2;
+		//初始化分类页
+		$this -> pagination -> initialize($config);
+		//生成分页信息
+		$data['pageinfo'] = $this -> pagination -> create_links();
+		$data['article_list'] = $this -> ac -> get_article_list($config['per_page'], $offset);
 		$this -> load -> view('article.html', $data);
 	}
 
