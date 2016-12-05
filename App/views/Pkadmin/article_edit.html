@@ -48,7 +48,7 @@
 													<select class="form-control" name="category_id">
 														<option value="">文章分类</option>
 														<?php foreach($category_list as $item):?>
-														<option value="<?php echo $item['category_id'];?>" <?php if($item[ 'category_id']==$ article[ 'category_id']) echo 'selected="selected"';?>>
+														<option value="<?php echo $item['category_id'];?>" <?php if($item[ 'category_id'] == $article[ 'category_id']) echo 'selected="selected"';?>>
 															<?php echo $item['category_name'];?>
 														</option>
 														<?php endforeach;?>
