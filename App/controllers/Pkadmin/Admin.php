@@ -34,7 +34,7 @@ class Admin extends Pkadmin_Controller {
 		//配置分页信息
 		$config['base_url'] = site_url('Pkadmin/Admin/index/');
 		$config['total_rows'] = $this -> admin -> get_log_count($this -> ADMINISTRSTORS['admin_id']);
-		$config['per_page'] = 7;
+		$config['per_page'] = 10;
 		//初始化分类页
 		$this -> pagination -> initialize($config);
 		//生成分页信息
