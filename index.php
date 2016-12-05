@@ -149,13 +149,13 @@ $view_folder = '';
  */
 // The directory name, relative to the "controllers" directory.  Leave blank
 // if your controller is not in a sub-directory within the "controllers" one
-$routing['directory'] = 'Home';
+//$routing['directory'] = 'Home';
 
 // The controller class file name.  Example:  mycontroller
-$routing['controller'] = 'Welcome';
+//$routing['controller'] = 'Welcome';
 
 // The controller function you wish to be called.
-$routing['function'] = 'test';
+//$routing['function'] = 'index';
 
 /*
  * -------------------------------------------------------------------
