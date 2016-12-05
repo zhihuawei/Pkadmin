@@ -14,17 +14,10 @@
 
 defined('BASEPATH') OR exit('No direct script access allowed');
 
-class Welcome extends Home_Controller {
+class Pkhome extends Home_Controller {
 
 	public function index() {
-		$this -> load -> view('welcome');
-	}
-	
-	public function test() {
-		echo APPPATH . ADMIN_VIEW_DIR;
-		var_dump(123);
-		echo "hahhahhaha";
-		//$this -> load -> view('welcome_message');
+		$this -> load -> view('home.html');
 	}
 
 }
