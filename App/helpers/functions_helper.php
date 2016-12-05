@@ -54,14 +54,3 @@ if (!function_exists('random')) {
 	}
 
 }
-
-if (!function_exists('addlog')) {
-	function addlog($log, $username = false) {
-		if(!$username){
-
-		}
-
-		//		$this->db->
-	}
-
-}
