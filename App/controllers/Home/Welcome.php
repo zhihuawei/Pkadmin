@@ -14,11 +14,19 @@
 
 defined('BASEPATH') OR exit('No direct script access allowed');
 
-class Index extends Home_Controller {
+class Welcome extends Home_Controller {
 
+	public function index() {
+		echo APPPATH . ADMIN_VIEW_DIR;
+		var_dump(123);
+		$this -> load -> view('welcome_message');
+	}
+	
 	public function test() {
 		echo APPPATH . ADMIN_VIEW_DIR;
-		$this -> load -> view('welcome_message');
+		var_dump(123);
+		echo "hahhahhaha";
+		//$this -> load -> view('welcome_message');
 	}
 
 }

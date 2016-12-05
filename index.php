@@ -149,13 +149,13 @@ $view_folder = '';
  */
 // The directory name, relative to the "controllers" directory.  Leave blank
 // if your controller is not in a sub-directory within the "controllers" one
-// $routing['directory'] = '';
+$routing['directory'] = 'Home';
 
 // The controller class file name.  Example:  mycontroller
-// $routing['controller'] = '';
+$routing['controller'] = 'Welcome';
 
 // The controller function you wish to be called.
-// $routing['function']	= '';
+$routing['function'] = 'test';
 
 /*
  * -------------------------------------------------------------------
@@ -266,4 +266,3 @@ define('VIEWPATH', $view_folder . DIRECTORY_SEPARATOR);
  * And away we go...
  */
 require_once BASEPATH . 'core/CodeIgniter.php';
-//this is my test
