@@ -5,15 +5,17 @@
 		<!-- BEGIN META -->
 		<meta charset="utf-8">
 		<meta name="viewport" content="width=device-width, initial-scale=1.0">
-		<meta name="description" content="">
-		<meta name="author" content="Custom Theme">
+		<meta name="keywords" content="PKADMIN,小刀科技">
+		<meta name="description" content="pkadmin后台管理系统是基于Codeigniter框架和Olive Admin后台模版进行开发的。">
+		<meta name="author" content="zhihua_w">
+		<meta name="version" content="1.0.0">
 		<!-- END META -->
 
 		<!-- BEGIN SHORTCUT ICON -->
-		<link rel="shortcut icon" href="img/favicon.ico">
+		<link rel="shortcut icon" href="<?php echo base_url('Public/img/favicon.ico');?>">
 		<!-- END SHORTCUT ICON -->
 		<title>
-			Profile
+			PKADMIN-小刀科技
 		</title>
 
 		<!-- BEGIN STYLESHEET -->
@@ -36,10 +38,8 @@
 		<!-- THEME RESPONSIVE CSS -->
 
 		<!--[if lt IE 9]>
-		<script src="js/html5shiv.js">
-		</script>
-		<script src="js/respond.min.js">
-		</script>
+		<script src="<?php echo base_url('Public/js/html5shiv.js');?>"></script>
+		<script src="<?php echo base_url('Public/js/respond.min.js');?>"></script>
 		<![endif]-->
 		<!-- END STYLESHEET -->
 
@@ -47,7 +47,6 @@
 
 	<body>
 		<!-- BEGIN SECTION -->
-
 		<section id="main-content m-l-0">
 			<!--BEGIN WRAPPER -->
 			<section class="wrapper m-bot-none m-t-0 p-0">
@@ -56,8 +55,8 @@
 					<div class="profile-nav">
 						<section class="panel">
 							<div class="user-heading round">
-								<a href="#">
-									<img src="<?php echo base_url('Public/img/profile-avatar.jpg');?>" alt="">
+								<a href="<?php echo site_url('Pkadmin/Login/index');?>" target="_blank">
+									<img src="<?php echo base_url('Public/img/logo.png');?>" alt="PKADMIN">
 								</a>
 								<h1 class="l-h-3"><strong>欢迎使用PKADMIN后台管理系统</strong></h1>
 
@@ -74,10 +73,10 @@
 				</div>
 			</section>
 			<!-- BEGIN WRAPPER  -->
-			<section class="wrapper m-t-0">
+			<section class="wrapper m-bot-none m-t-0">
 				<section class="panel">
 					<header class="panel-heading">
-						<i class="fa fa-hand-o-down"></i> Image Galley
+						<span class="label label-primary">展示图册</span>
 						<span class="tools pull-right"></span>
 					</header>
 					<div class="panel-body">
@@ -94,84 +93,84 @@
 							</li>
 							<li>
 								<figure>
-									<img src="<?php echo base_url('Data/gallery/login.png');?>" alt="img01">
+									<img src="<?php echo base_url('Data/gallery/index.png');?>" alt="控制台页">
 									<figcaption>
-										<h3>Clean & Fresh</h3>
+										<h3>2.控制台页</h3>
 										<span> zhihua_w </span>
-										<a class="fancybox" data-fancybox-group="group" href="img/gallery/1.jpg">Read</a>
+										<a class="fancybox" data-fancybox-group="group" href="<?php echo base_url('Data/gallery/index.png');?>">Read</a>
 									</figcaption>
 								</figure>
 							</li>
 							<li>
 								<figure>
-									<img src="<?php echo base_url('Data/gallery/login.png');?>" alt="img02">
+									<img src="<?php echo base_url('Data/gallery/setting.png');?>" alt="网站设置页">
 									<figcaption>
-										<h3>Flat Concept</h3>
+										<h3>3.网站设置页</h3>
 										<span> zhihua_w </span>
-										<a class="fancybox" data-fancybox-group="group" href="img/gallery/2.jpg">Read</a>
+										<a class="fancybox" data-fancybox-group="group" href="<?php echo base_url('Data/gallery/setting.png');?>">Read</a>
 									</figcaption>
 								</figure>
 							</li>
 							<li>
 								<figure>
-									<img src="<?php echo base_url('Data/gallery/login.png');?>" alt="img05">
+									<img src="<?php echo base_url('Data/gallery/menu.png');?>" alt="菜单页">
 									<figcaption>
-										<h3>Modern</h3>
+										<h3>4.菜单页</h3>
 										<span> zhihua_w </span>
-										<a class="fancybox" data-fancybox-group="group" href="img/gallery/5.jpg">Read</a>
+										<a class="fancybox" data-fancybox-group="group" href="<?php echo base_url('Data/gallery/menu.png');?>">Read</a>
 									</figcaption>
 								</figure>
 							</li>
 							<li>
 								<figure>
-									<img src="<?php echo base_url('Data/gallery/login.png');?>" alt="img03">
+									<img src="<?php echo base_url('Data/gallery/devlog.png');?>" alt="开发日志页">
 									<figcaption>
-										<h3>Clean Code</h3>
+										<h3>5.开发日志页</h3>
 										<span> zhihua_w </span>
-										<a class="fancybox" data-fancybox-group="group" href="img/gallery/3.jpg">Read</a>
+										<a class="fancybox" data-fancybox-group="group" href="<?php echo base_url('Data/gallery/devlog.png');?>">Read</a>
 									</figcaption>
 								</figure>
 							</li>
 							<li>
 								<figure>
-									<img src="<?php echo base_url('Data/gallery/login.png');?>" alt="img06">
+									<img src="<?php echo base_url('Data/gallery/auth.png');?>" alt="角色管理页">
 									<figcaption>
-										<h3>Cheers</h3>
+										<h3>6.角色管理页</h3>
 										<span> zhihua_w </span>
-										<a class="fancybox" data-fancybox-group="group" href="img/gallery/6.jpg">Read</a>
+										<a class="fancybox" data-fancybox-group="group" href="<?php echo base_url('Data/gallery/auth.png');?>" ">Read</a>
 									</figcaption>
 								</figure>
 							</li>
 							<li>
 								<figure>
-									<img src="<?php echo base_url('Data/gallery/login.png');?>" alt="img04">
+									<img src="<?php echo base_url( 'Data/gallery/articleedit.png');?>" alt="文章编辑页">
+											<figcaption>
+												<h3>7.文章编辑页</h3>
+												<span> zhihua_w </span>
+												<a class="fancybox" data-fancybox-group="group" href="<?php echo base_url('Data/gallery/articleedit.png');?>">Read</a>
+											</figcaption>
+								</figure>
+							</li>
+							<li>
+								<figure>
+									<img src="<?php echo base_url('Data/gallery/personal.png');?>" alt="个人资料页">
 									<figcaption>
-										<h3>Freshness</h3>
+										<h3>8.个人资料页</h3>
 										<span> zhihua_w </span>
-										<a class="fancybox" data-fancybox-group="group" href="img/gallery/4.jpg">Read</a>
+										<a class="fancybox" data-fancybox-group="group" href="<?php echo base_url('Data/gallery/personal.png');?>">Read</a>
 									</figcaption>
 								</figure>
 							</li>
 							<li>
 								<figure>
-									<img src="<?php echo base_url('Data/gallery/login.png');?>" alt="img01">
+									<img src="<?php echo base_url('Data/gallery/success.png');?>" alt="操作成功页">
 									<figcaption>
-										<h3>Awesome</h3>
+										<h3>9.操作成功页</h3>
 										<span> zhihua_w </span>
-										<a class="fancybox" data-fancybox-group="group" href="img/gallery/1.jpg">Read</a>
+										<a class="fancybox" data-fancybox-group="group" href="<?php echo base_url('Data/gallery/success.png');?>">Read</a>
 									</figcaption>
 								</figure>
 							</li>
-							<li>
-								<figure>
-									<img src="<?php echo base_url('Data/gallery/login.png');?>" alt="img02">
-									<figcaption>
-										<h3>Music</h3>
-										<span> zhihua_w </span>
-										<a class="fancybox" data-fancybox-group="group" href="img/gallery/2.jpg">Read</a>
-									</figcaption>
-								</figure>
-							</li>							
 						</ul>
 					</div>
 				</section>
@@ -180,6 +179,18 @@
 
 		</section>
 		<!-- END SECTION -->
+
+		<!-- BEGIN FOOTER -->
+		<footer class="site-footer">
+			<div class="text-center">
+				Copyright © 2016 PKADMIN design by
+				<a href="" target="_blank">Zhihua_w</a>.
+				<a href="javascript:scrollTo(0,0);" class="go-top">
+					<i class="fa fa-angle-up"></i>
+				</a>
+			</div>
+		</footer>
+		<!-- END  FOOTER -->
 
 		<!-- BEGIN JS -->
 		<script src="<?php echo base_url('Public/js/jquery.js');?>"></script>
@@ -202,14 +213,11 @@
 		<!-- TOUCH EFFECTS JS -->
 		<script src="<?php echo base_url('Public/js/common-scripts.js');?>"></script>
 		<!-- BASIC COMMON SCRIPT JS -->
-
 		<script>
 			$(function() {
-				//    fancybox
 				jQuery(".fancybox").fancybox();
 			});
 		</script>
-
 		<!-- END JS -->
 
 	</body>
