@@ -1,13 +1,217 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 
 	<head>
-		<meta charset="UTF-8">
-		<title>fadsfasd</title>
+		<!-- BEGIN META -->
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<meta name="description" content="">
+		<meta name="author" content="Custom Theme">
+		<!-- END META -->
+
+		<!-- BEGIN SHORTCUT ICON -->
+		<link rel="shortcut icon" href="img/favicon.ico">
+		<!-- END SHORTCUT ICON -->
+		<title>
+			Profile
+		</title>
+
+		<!-- BEGIN STYLESHEET -->
+		<link href="<?php echo base_url('Public/css/pkadmin.css');?>" rel="stylesheet">
+		<!-- PKADMIN CSS -->
+
+		<link href="<?php echo base_url('Public/css/bootstrap.min.css');?>" rel="stylesheet">
+		<!-- BOOTSTRAP CSS -->
+		<link href="<?php echo base_url('Public/css/bootstrap-reset.css');?>" rel="stylesheet">
+		<!-- BOOTSTRAP CSS -->
+		<link href="<?php echo base_url('Public/assets/font-awesome/css/font-awesome.css');?>" rel="stylesheet">
+		<!-- FONT AWESOME ICON CSS -->
+		<link href="<?php echo base_url('Public/assets/fancybox/source/jquery.fancybox.css');?>" rel="stylesheet">
+		<!-- FANCYBOX CSS -->
+		<link href="<?php echo base_url('Public/css/gallery.css');?>" rel="stylesheet" type="text/css">
+		<!-- GALLERY CSS -->
+		<link href="<?php echo base_url('Public/css/style.css');?>" rel="stylesheet">
+		<!-- THEME BASIC CSS -->
+		<link href="<?php echo base_url('Public/css/style-responsive.css');?>" rel="stylesheet">
+		<!-- THEME RESPONSIVE CSS -->
+
+		<!--[if lt IE 9]>
+		<script src="js/html5shiv.js">
+		</script>
+		<script src="js/respond.min.js">
+		</script>
+		<![endif]-->
+		<!-- END STYLESHEET -->
+
 	</head>
 
 	<body>
-		fasdfasdfas
+		<!-- BEGIN SECTION -->
+
+		<section id="main-content m-l-0">
+			<!--BEGIN WRAPPER -->
+			<section class="wrapper m-bot-none m-t-0 p-0">
+				<!-- BEGIN ROW  -->
+				<div class="row">
+					<div class="profile-nav">
+						<section class="panel">
+							<div class="user-heading round">
+								<a href="#">
+									<img src="<?php echo base_url('Public/img/profile-avatar.jpg');?>" alt="">
+								</a>
+								<h1 class="l-h-3"><strong>欢迎使用PKADMIN后台管理系统</strong></h1>
+
+								<b class="l-h-2 fa-2x">安装说明</b>
+								<p class="text-left m-l-41p">
+									1.pkadmin.sql文件导入到数据库中。<br> 2.修改文件App/config/database.php。
+									<br> 3.填写正确的数据库配置信息。
+									<br> 4.帐号：admin，密码：admin2016。
+								</p>
+								<h4 class="l-h-2">后台地址：<a href="<?php echo 1;?>">进入PKADMIN后台管理系统</a></h4>
+							</div>
+						</section>
+					</div>
+				</div>
+			</section>
+			<!-- BEGIN WRAPPER  -->
+			<section class="wrapper m-t-0">
+				<section class="panel">
+					<header class="panel-heading">
+						<i class="fa fa-hand-o-down"></i> Image Galley
+						<span class="tools pull-right"></span>
+					</header>
+					<div class="panel-body">
+						<ul class="grid cs-style-3">
+							<li>
+								<figure>
+									<img src="<?php echo base_url('Data/gallery/login.png');?>" alt="登录页">
+									<figcaption>
+										<h3>1.登录页</h3>
+										<span> zhihua_w </span>
+										<a class="fancybox" data-fancybox-group="group" href="<?php echo base_url('Data/gallery/login.png');?>">Read</a>
+									</figcaption>
+								</figure>
+							</li>
+							<li>
+								<figure>
+									<img src="<?php echo base_url('Data/gallery/login.png');?>" alt="img01">
+									<figcaption>
+										<h3>Clean & Fresh</h3>
+										<span> zhihua_w </span>
+										<a class="fancybox" data-fancybox-group="group" href="img/gallery/1.jpg">Read</a>
+									</figcaption>
+								</figure>
+							</li>
+							<li>
+								<figure>
+									<img src="<?php echo base_url('Data/gallery/login.png');?>" alt="img02">
+									<figcaption>
+										<h3>Flat Concept</h3>
+										<span> zhihua_w </span>
+										<a class="fancybox" data-fancybox-group="group" href="img/gallery/2.jpg">Read</a>
+									</figcaption>
+								</figure>
+							</li>
+							<li>
+								<figure>
+									<img src="<?php echo base_url('Data/gallery/login.png');?>" alt="img05">
+									<figcaption>
+										<h3>Modern</h3>
+										<span> zhihua_w </span>
+										<a class="fancybox" data-fancybox-group="group" href="img/gallery/5.jpg">Read</a>
+									</figcaption>
+								</figure>
+							</li>
+							<li>
+								<figure>
+									<img src="<?php echo base_url('Data/gallery/login.png');?>" alt="img03">
+									<figcaption>
+										<h3>Clean Code</h3>
+										<span> zhihua_w </span>
+										<a class="fancybox" data-fancybox-group="group" href="img/gallery/3.jpg">Read</a>
+									</figcaption>
+								</figure>
+							</li>
+							<li>
+								<figure>
+									<img src="<?php echo base_url('Data/gallery/login.png');?>" alt="img06">
+									<figcaption>
+										<h3>Cheers</h3>
+										<span> zhihua_w </span>
+										<a class="fancybox" data-fancybox-group="group" href="img/gallery/6.jpg">Read</a>
+									</figcaption>
+								</figure>
+							</li>
+							<li>
+								<figure>
+									<img src="<?php echo base_url('Data/gallery/login.png');?>" alt="img04">
+									<figcaption>
+										<h3>Freshness</h3>
+										<span> zhihua_w </span>
+										<a class="fancybox" data-fancybox-group="group" href="img/gallery/4.jpg">Read</a>
+									</figcaption>
+								</figure>
+							</li>
+							<li>
+								<figure>
+									<img src="<?php echo base_url('Data/gallery/login.png');?>" alt="img01">
+									<figcaption>
+										<h3>Awesome</h3>
+										<span> zhihua_w </span>
+										<a class="fancybox" data-fancybox-group="group" href="img/gallery/1.jpg">Read</a>
+									</figcaption>
+								</figure>
+							</li>
+							<li>
+								<figure>
+									<img src="<?php echo base_url('Data/gallery/login.png');?>" alt="img02">
+									<figcaption>
+										<h3>Music</h3>
+										<span> zhihua_w </span>
+										<a class="fancybox" data-fancybox-group="group" href="img/gallery/2.jpg">Read</a>
+									</figcaption>
+								</figure>
+							</li>							
+						</ul>
+					</div>
+				</section>
+			</section>
+			<!-- END WRAPPER  -->
+
+		</section>
+		<!-- END SECTION -->
+
+		<!-- BEGIN JS -->
+		<script src="<?php echo base_url('Public/js/jquery.js');?>"></script>
+		<!-- BASIC JQUERY LIB. JS -->
+		<script src="<?php echo base_url('Public/js/bootstrap.min.js');?>"></script>
+		<!-- BOOTSTRAP JS -->
+		<script src="<?php echo base_url('Public/js/jquery.dcjqaccordion.2.7.js');?>"></script>
+		<!-- ACCORDIN JS -->
+		<script src="<?php echo base_url('Public/assets/fancybox/source/jquery.fancybox.js');?>"></script>
+		<!-- FANCYBOX JS -->
+		<script src="<?php echo base_url('Public/js/jquery.scrollTo.min.js');?>"></script>
+		<!-- SCROLLTO JS -->
+		<script src="<?php echo base_url('Public/js/jquery.nicescroll.js');?>"></script>
+		<!-- NICESACROLL JS -->
+		<script src="<?php echo base_url('Public/js/respond.min.js');?>"></script>
+		<!-- RESPOND JS -->
+		<script src="<?php echo base_url('Public/js/modernizr.custom.js');?>"></script>
+		<!-- MORDERNIZR JS -->
+		<script src="<?php echo base_url('Public/js/toucheffects.js');?>"></script>
+		<!-- TOUCH EFFECTS JS -->
+		<script src="<?php echo base_url('Public/js/common-scripts.js');?>"></script>
+		<!-- BASIC COMMON SCRIPT JS -->
+
+		<script>
+			$(function() {
+				//    fancybox
+				jQuery(".fancybox").fancybox();
+			});
+		</script>
+
+		<!-- END JS -->
+
 	</body>
 
 </html>

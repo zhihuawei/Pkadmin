@@ -46,12 +46,40 @@
 	color: #fff;
 }
 
+.l-h-3 {
+	line-height: 3 !important;
+}
+
+.l-h-2 {
+	line-height: 2;
+}
+
+.l-h-2 a{
+	color: red;
+}
+
 .m-r-15 {
 	margin-right: 15px;
 }
 
 .m-r-5 {
 	margin-right: 5px !important;
+}
+
+.m-l-0 {
+	margin-left: 0px !important;
+}
+
+.m-l-41p {
+	margin-left: 41%;
+}
+
+.m-t-0 {
+	margin-top: 0px !important;
+}
+
+.p-0 {
+	padding: 0px !important;
 }
 
 .w-10p {
@@ -78,7 +106,7 @@
 	height: 10%;
 }
 
-.h-35p{
+.h-35p {
 	height: 35%;
 }
 
